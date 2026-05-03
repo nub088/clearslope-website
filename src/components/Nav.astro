@@ -1,0 +1,23 @@
+---
+const calLink = "#book";
+---
+
+<header class="sticky top-0 z-40 bg-bg/85 backdrop-blur-md border-b border-rule">
+  <div class="container-page flex items-center justify-between h-16">
+    <a href="/" class="group flex items-baseline gap-1.5 font-mono text-[0.875rem] tracking-[0.04em] uppercase text-ink hover:text-accent transition-colors">
+      <span class="font-medium">Clear</span>
+      <span class="text-accent">/</span>
+      <span class="font-medium">Slope</span>
+    </a>
+
+    <nav class="flex items-center gap-6">
+      <a
+        href={calLink}
+        class="link-mono inline-flex items-center gap-1.5 hover:text-accent"
+      >
+        <span>book a call</span>
+        <span class="text-accent transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+      </a>
+    </nav>
+  </div>
+</header>

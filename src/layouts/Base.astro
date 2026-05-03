@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Clear Slope Digital | AI automation & local SEO for SMBs",
+  description = "Agentic workflows and local SEO for small and mid-sized businesses. We build the systems your business has been trying to hire for.",
+  ogImage = "/img/og.webp",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://clearslopedigital.com").toString();
+const ogImageUrl = new URL(ogImage, Astro.site ?? "https://clearslopedigital.com").toString();
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Clear Slope Digital",
+  url: "https://clearslopedigital.com",
+  description,
+  areaServed: ["North America"],
+  serviceType: ["AI Automation", "Agentic Workflows", "Local SEO"],
+  priceRange: "$$$",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Clear Slope Digital" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} is:inline />
+  </head>
+  <body class="bg-bg text-ink antialiased">
+    <slot />
+
+    <script is:inline>
+      (() => {
+        if (typeof window === "undefined") return;
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const targets = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+        if (reduce || !("IntersectionObserver" in window)) {
+          targets.forEach((el) => el.classList.add("is-revealed"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-revealed");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
+        );
+        targets.forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+---
+import ContactForm from "./ContactForm.astro";
+const calLink = "#book";
+---
+
+<section id="book" class="py-32 md:py-40 border-t border-rule">
+  <div class="container-page">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Left: headline + book-a-call -->
+      <div class="lg:col-span-5" data-reveal>
+        <h2
+          class="font-sans font-medium text-ink"
+          style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing);"
+        >
+          Let's see what
+          <span class="text-accent">we can ship.</span>
+        </h2>
+
+        <p class="mt-8 max-w-[34ch] text-ink-soft leading-relaxed" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">
+          Tell me about your business and what's worth automating or ranking. I'll reply within 24 hours.
+        </p>
+
+        <div class="mt-10">
+          <a
+            href={calLink}
+            class="link-mono inline-flex items-center gap-1.5 hover:text-accent group"
+          >
+            <span>Or book a 30-min discovery call</span>
+            <span class="text-accent transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="lg:col-span-7" data-reveal>
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>

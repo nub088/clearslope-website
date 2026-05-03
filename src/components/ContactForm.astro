@@ -1,0 +1,211 @@
+---
+// Contact form posts to Web3Forms (https://web3forms.com).
+// Replace ACCESS_KEY with your real key once you've signed up.
+// Falls back gracefully without JS via the form action redirect.
+
+const ACCESS_KEY = "71da2716-4185-43b8-978d-a1978c193628";
+---
+
+<form
+  data-contact-form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  novalidate
+  class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6"
+>
+  <input type="hidden" name="access_key" value={ACCESS_KEY} />
+  <input type="hidden" name="subject" value="New inquiry from clearslopedigital.com" />
+  <input type="hidden" name="from_name" value="Clear Slope Digital" />
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+  <div class="flex flex-col gap-2">
+    <label for="cs-name" class="mono-label">Name *</label>
+    <input
+      id="cs-name"
+      name="name"
+      type="text"
+      required
+      autocomplete="name"
+      class="cs-input"
+      placeholder="Your name"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label for="cs-email" class="mono-label">Email *</label>
+    <input
+      id="cs-email"
+      name="email"
+      type="email"
+      required
+      autocomplete="email"
+      class="cs-input"
+      placeholder="you@yourbusiness.com"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2 md:col-span-2">
+    <label for="cs-company" class="mono-label">Business <span class="text-ink-soft normal-case tracking-normal">(optional)</span></label>
+    <input
+      id="cs-company"
+      name="company"
+      type="text"
+      autocomplete="organization"
+      class="cs-input"
+      placeholder="What you run"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2 md:col-span-2">
+    <label for="cs-message" class="mono-label">What are you trying to ship? *</label>
+    <textarea
+      id="cs-message"
+      name="message"
+      rows="5"
+      required
+      class="cs-input resize-y min-h-[140px]"
+      placeholder="A few lines about what you're building or where the friction is."></textarea>
+  </div>
+
+  <div class="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-5 mt-2">
+    <button
+      type="submit"
+      data-form-submit
+      class="cta-primary-large group hover:bg-accent-hover hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+    >
+      <span data-form-button-label>Send message</span>
+      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-px">↗</span>
+    </button>
+
+    <p data-form-status class="mono-label" role="status" aria-live="polite">
+      We reply within 24 hours.
+    </p>
+  </div>
+</form>
+
+<div data-form-success hidden class="mt-2">
+  <div class="flex items-center gap-3 mb-4">
+    <span class="mono-label !text-accent">Sent</span>
+    <span class="h-px w-12 bg-rule"></span>
+  </div>
+  <h3
+    class="font-sans font-medium text-ink mb-3"
+    style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+  >
+    Got it. Talk soon.
+  </h3>
+  <p class="text-ink-soft" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">
+    Your message landed. I'll get back to you within 24 hours, usually faster.
+  </p>
+</div>
+
+<style>
+  .cs-input {
+    border: 1px solid color-mix(in oklab, var(--color-ink) 16%, transparent);
+    background: color-mix(in oklab, var(--color-bg-deep) 55%, transparent);
+    padding: 0.9rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    border-radius: 4px;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .cs-input::placeholder {
+    color: color-mix(in oklab, var(--color-ink) 38%, transparent);
+  }
+  .cs-input:hover {
+    border-color: color-mix(in oklab, var(--color-ink) 28%, transparent);
+  }
+  .cs-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+  }
+  .cs-input[aria-invalid="true"] {
+    border-color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-accent) 5%, var(--color-bg));
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-contact-form]");
+    if (!form) return;
+    const status = form.querySelector("[data-form-status]");
+    const button = form.querySelector("[data-form-submit]");
+    const buttonLabel = form.querySelector("[data-form-button-label]");
+    const success = document.querySelector("[data-form-success]");
+
+    const setInvalid = (field, on) => {
+      if (on) field.setAttribute("aria-invalid", "true");
+      else field.removeAttribute("aria-invalid");
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Honeypot
+      const botcheck = form.querySelector('input[name="botcheck"]');
+      if (botcheck && botcheck.checked) return;
+
+      // Native validation
+      const fields = form.querySelectorAll("input[required], textarea[required]");
+      let firstInvalid = null;
+      fields.forEach((f) => {
+        const ok = f.checkValidity();
+        setInvalid(f, !ok);
+        if (!ok && !firstInvalid) firstInvalid = f;
+      });
+      if (firstInvalid) {
+        firstInvalid.focus();
+        status.textContent = "Please fill in the required fields.";
+        return;
+      }
+
+      const data = new FormData(form);
+      button.disabled = true;
+      buttonLabel.textContent = "Sending…";
+      status.textContent = "Sending your message…";
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data,
+        });
+        const json = await res.json().catch(() => ({}));
+
+        if (res.ok && json.success) {
+          form.hidden = true;
+          if (success) {
+            success.hidden = false;
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        } else {
+          status.textContent =
+            (json && json.message) ||
+            "Something went wrong sending. Try again in a moment.";
+          button.disabled = false;
+          buttonLabel.textContent = "Send message";
+        }
+      } catch (err) {
+        status.textContent = "Network error. Please try again.";
+        button.disabled = false;
+        buttonLabel.textContent = "Send message";
+      }
+    });
+
+    // Clear invalid state as user fixes
+    form.querySelectorAll("input, textarea").forEach((f) => {
+      f.addEventListener("input", () => {
+        if (f.getAttribute("aria-invalid") === "true" && f.checkValidity()) {
+          setInvalid(f, false);
+        }
+      });
+    });
+  })();
+</script>

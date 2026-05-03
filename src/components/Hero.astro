@@ -1,0 +1,78 @@
+---
+import HeroVisual from "./HeroVisual.astro";
+const calLink = "#book";
+---
+
+<section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden">
+  <div class="container-page">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+      <!-- Headline column -->
+      <div class="lg:col-span-7" data-load-stagger>
+        <h1
+          class="font-sans font-semibold tracking-tight text-ink"
+          style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing);"
+        >
+          We build the
+          <span class="relative inline-block">
+            systems
+            <svg
+              class="absolute -bottom-2 left-0 w-full"
+              height="10"
+              viewBox="0 0 320 10"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                class="draw-underline"
+                d="M2 7 Q 80 1 160 5 T 318 4"
+                stroke="#239e9b"
+                stroke-width="2.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          your business has been
+          trying to hire for.
+        </h1>
+
+        <p class="mt-8 max-w-[34ch] font-mono text-[1rem] leading-relaxed text-ink-soft">
+          Agentic workflows and local SEO for SMBs. Custom-built.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-5">
+          <a
+            href={calLink}
+            class="cta-primary-large group hover:bg-accent-hover hover:-translate-y-px"
+          >
+            Book a discovery call
+            <span
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-px"
+              >↗</span
+            >
+          </a>
+          <a
+            href="#services"
+            class="link-mono inline-flex items-center gap-1.5 hover:text-accent group"
+          >
+            <span>or see what we ship</span>
+            <span
+              class="text-accent transition-transform duration-200 group-hover:translate-y-0.5"
+              >↓</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual column -->
+      <div class="lg:col-span-5">
+        <figure
+          class="hero-figure relative aspect-[5/4] lg:aspect-[4/5] overflow-hidden rounded-sm border border-rule bg-bg-deep"
+        >
+          <HeroVisual />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

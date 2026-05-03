@@ -1,0 +1,86 @@
+---
+const cases = [
+  {
+    num: "01",
+    client: "Pest Control Company",
+    location: "Metro Vancouver, BC",
+    tags: ["Google Ads Audit", "Ad Strategy"],
+    challenge:
+      "Paying for Google Ads every month but not knowing why the phones weren't ringing more. The budget looked fine on paper. The problem was buried inside the campaigns.",
+    results: [
+      "Found that nearly half the ad budget was going to calls that would never book",
+      "Discovered ads with broken copy showing raw code to potential customers",
+      "Identified that ads for specific pests were pointing to the wrong pages or the homepage",
+      "Built a seasonal spend plan so the budget is heaviest when customers actually need the service",
+    ],
+  },
+];
+---
+
+<section id="work" class="py-24 md:py-32 border-t border-rule">
+  <div class="container-page">
+    <header
+      class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
+      data-reveal
+    >
+      <div class="flex items-center gap-3">
+        <span class="mono-label">Work</span>
+        <span class="h-px w-12 bg-rule"></span>
+      </div>
+      <h2
+        class="font-sans font-medium text-ink max-w-[20ch]"
+        style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+      >
+        What we've shipped.
+      </h2>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10" data-reveal-stagger>
+      {cases.map((c) => (
+        <article
+          class="group relative flex flex-col p-8 md:p-10 rounded-sm border lift-on-hover hover:-translate-y-1 bg-bg-deep border-rule-strong hover:border-accent/40"
+        >
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="mono-label !text-accent">{c.num}</span>
+          </div>
+
+          <div class="mb-6">
+            <h3
+              class="font-sans font-medium text-ink"
+              style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+            >
+              {c.client}
+            </h3>
+            <p class="font-mono text-ink-soft mt-1" style="font-size: var(--text-mono);">
+              {c.location}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-8">
+            {c.tags.map((tag) => (
+              <span class="font-mono text-accent border border-accent/30 rounded-full px-3 py-0.5" style="font-size: var(--text-mono);">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div class="mb-8">
+            <p class="mono-label mb-3">Challenge</p>
+            <p class="text-ink-soft leading-relaxed" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">
+              {c.challenge}
+            </p>
+          </div>
+
+          <ul class="flex flex-col gap-2 pt-6 border-t border-rule mt-auto">
+            {c.results.map((r) => (
+              <li class="flex items-start gap-3 text-ink" style="font-size: var(--text-body);">
+                <span class="text-accent mt-[2px] shrink-0">↗</span>
+                <span>{r}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

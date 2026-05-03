@@ -1,0 +1,330 @@
+---
+const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
+---
+
+<section
+  id="demo"
+  data-chat-api-url={apiUrl}
+  class="py-24 md:py-32 border-t border-rule"
+>
+  <div class="container-page">
+    <header class="mb-12 max-w-[34rem]" data-reveal>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="mono-label">Live demo</span>
+        <span class="h-px w-12 bg-rule"></span>
+      </div>
+      <h2
+        class="font-sans font-medium text-ink"
+        style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+      >
+        Talk to Sarah — our AI receptionist.
+      </h2>
+      <p
+        class="mt-4 text-ink-soft"
+        style="font-size: var(--text-body); line-height: var(--text-body--line-height);"
+      >
+        Type as if you're calling ClearSlope Pest Control about a pest problem.
+        This is the same agent answering their phones.
+      </p>
+    </header>
+
+    <div class="max-w-2xl" data-reveal>
+      <div
+        data-chat-window
+        class="flex flex-col rounded-sm border overflow-hidden"
+        style="height: 420px; border-color: var(--color-rule-strong); background: var(--color-bg-deep);"
+      >
+        <!-- Agent name bar -->
+        <div
+          class="flex items-center gap-3 px-5 py-3 border-b"
+          style="border-color: var(--color-rule-strong); background: var(--color-bg);"
+        >
+          <div
+            class="w-2 h-2 rounded-full"
+            style="background: var(--color-accent);"
+          ></div>
+          <span class="mono-label">Sarah · ClearSlope Pest Control</span>
+        </div>
+
+        <!-- Messages -->
+        <div
+          data-chat-messages
+          class="flex-1 overflow-y-auto p-5 flex flex-col gap-3"
+          aria-live="polite"
+          aria-label="Chat messages"
+        ></div>
+
+        <!-- Input row -->
+        <div
+          class="border-t p-4 flex gap-3 items-end"
+          style="border-color: var(--color-rule-strong); background: var(--color-bg);"
+        >
+          <textarea
+            data-chat-input
+            rows="1"
+            placeholder="Type a message…"
+            class="flex-1 resize-none cs-chat-input"
+            aria-label="Your message"
+            disabled
+          ></textarea>
+          <button
+            data-chat-send
+            class="cta-primary shrink-0 self-end disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Send message"
+            disabled
+          >Send</button>
+        </div>
+      </div>
+
+      <p class="mono-label mt-3" style="color: color-mix(in oklab, var(--color-ink-soft) 70%, transparent);">
+        Text demo — the real agent handles inbound calls by phone.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cs-chat-input {
+    border: 1px solid color-mix(in oklab, var(--color-ink) 16%, transparent);
+    background: color-mix(in oklab, var(--color-bg-deep) 55%, transparent);
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    border-radius: 4px;
+    line-height: 1.4;
+    max-height: 96px;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .cs-chat-input::placeholder {
+    color: color-mix(in oklab, var(--color-ink) 38%, transparent);
+  }
+  .cs-chat-input:hover:not(:disabled) {
+    border-color: color-mix(in oklab, var(--color-ink) 28%, transparent);
+  }
+  .cs-chat-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+  }
+  .cs-chat-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .bubble-agent {
+    align-self: flex-start;
+    background: var(--color-bg);
+    border: 1px solid var(--color-rule-strong);
+    color: var(--color-ink);
+    padding: 0.65rem 0.9rem;
+    border-radius: 0 10px 10px 10px;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    max-width: 82%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .bubble-user {
+    align-self: flex-end;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px 10px 0 10px;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    max-width: 82%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Typing indicator */
+  .bubble-typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.75rem 0.9rem;
+    min-width: 3rem;
+  }
+  .bubble-typing span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--color-ink-soft);
+    border-radius: 50%;
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+  .bubble-typing span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .bubble-typing span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  @keyframes typing-dot {
+    0%, 60%, 100% {
+      opacity: 0.2;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const section = document.querySelector("[data-chat-api-url]");
+    if (!section) return;
+
+    const API_URL = section.dataset.chatApiUrl ?? "http://localhost:8080";
+    const messagesEl = section.querySelector("[data-chat-messages]");
+    const input = section.querySelector("[data-chat-input]");
+    const sendBtn = section.querySelector("[data-chat-send]");
+    if (!messagesEl || !input || !sendBtn) return;
+
+    const sessionId =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Date.now().toString(36);
+
+    let messages = [];
+    let ended = false;
+    let typingEl = null;
+    let initialized = false;
+
+    function scrollBottom() {
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function addBubble(role, text) {
+      const div = document.createElement("div");
+      div.className = role === "user" ? "bubble-user" : "bubble-agent";
+      div.textContent = text;
+      messagesEl.appendChild(div);
+      scrollBottom();
+      return div;
+    }
+
+    function showTyping() {
+      typingEl = document.createElement("div");
+      typingEl.className = "bubble-agent bubble-typing";
+      typingEl.innerHTML = "<span></span><span></span><span></span>";
+      messagesEl.appendChild(typingEl);
+      scrollBottom();
+    }
+
+    function hideTyping() {
+      if (typingEl) {
+        typingEl.remove();
+        typingEl = null;
+      }
+    }
+
+    function setControls(enabled) {
+      input.disabled = !enabled;
+      sendBtn.disabled = !enabled;
+    }
+
+    async function send(userText) {
+      if (ended) return;
+
+      if (userText) {
+        messages.push({ role: "user", content: userText });
+        addBubble("user", userText);
+      }
+
+      setControls(false);
+      showTyping();
+
+      try {
+        const res = await fetch(API_URL + "/text-chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sessionId, messages }),
+        });
+        const json = await res.json().catch(() => ({}));
+        hideTyping();
+
+        if (!res.ok) {
+          throw new Error(json.error || res.statusText);
+        }
+
+        const reply = json.reply || "";
+        messages.push({ role: "assistant", content: reply });
+        addBubble("agent", reply);
+
+        if (json.ended) {
+          ended = true;
+          const note = document.createElement("p");
+          note.className = "mono-label";
+          note.style.textAlign = "center";
+          note.style.marginTop = "0.5rem";
+          note.style.color = "color-mix(in oklab, var(--color-ink-soft) 70%, transparent)";
+          note.textContent = "Sarah ended the call. Refresh to start over.";
+          messagesEl.appendChild(note);
+          scrollBottom();
+          return;
+        }
+      } catch (err) {
+        hideTyping();
+        const errEl = document.createElement("p");
+        errEl.className = "mono-label";
+        errEl.style.color = "color-mix(in oklab, var(--color-ink-soft) 70%, transparent)";
+        errEl.textContent = "Connection error — try again in a moment.";
+        messagesEl.appendChild(errEl);
+        scrollBottom();
+      }
+
+      if (!ended) {
+        setControls(true);
+        input.focus();
+      }
+    }
+
+    function triggerSend() {
+      const text = input.value.trim();
+      if (!text || ended) return;
+      input.value = "";
+      input.style.height = "auto";
+      send(text);
+    }
+
+    // Auto-grow textarea
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 96) + "px";
+    });
+
+    // Enter to send; Shift+Enter for newline
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        triggerSend();
+      }
+    });
+
+    sendBtn.addEventListener("click", triggerSend);
+
+    // Fire initial greeting only when the section scrolls into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !initialized) {
+          initialized = true;
+          observer.disconnect();
+          messages.push({
+            role: "user",
+            content: "[the phone rings — caller has just connected]",
+          });
+          send(); // no userText → skips user bubble, just gets Sarah's greeting
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(section);
+  })();
+</script>

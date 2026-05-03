@@ -1,0 +1,401 @@
+---
+import Base from "../layouts/Base.astro";
+
+const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
+---
+
+<Base title="Demo — Clear Slope Digital" description="Live demo of the AI receptionist.">
+  <main
+    class="min-h-dvh flex items-center justify-center px-4 py-16"
+    style="background: var(--color-bg-deep);"
+    data-demo-api-url={apiUrl}
+  >
+    <!-- Login gate -->
+    <div data-login-panel class="w-full max-w-sm">
+      <div class="mb-8 text-center">
+        <span class="mono-label block mb-3">Clear Slope Digital</span>
+        <h1
+          class="font-sans font-medium text-ink"
+          style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+        >
+          AI assistant demo
+        </h1>
+      </div>
+
+      <form
+        data-login-form
+        class="flex flex-col gap-4 bg-bg rounded-sm border p-8"
+        style="border-color: var(--color-rule-strong);"
+        novalidate
+      >
+        <div class="flex flex-col gap-2">
+          <label for="demo-username" class="mono-label">Username</label>
+          <input
+            id="demo-username"
+            name="username"
+            type="text"
+            autocomplete="username"
+            required
+            class="cs-input"
+            placeholder="username"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="demo-password" class="mono-label">Password</label>
+          <input
+            id="demo-password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="cs-input"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button
+          type="submit"
+          data-login-submit
+          class="cta-primary justify-center mt-2 hover:bg-accent-hover hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+        >
+          <span data-login-label>Enter</span>
+        </button>
+
+        <p data-login-error class="mono-label !text-red-500 text-center hidden">
+          Incorrect username or password.
+        </p>
+      </form>
+    </div>
+
+    <!-- Chat panel (hidden until authenticated) -->
+    <div data-chat-panel class="w-full max-w-2xl hidden">
+      <div class="mb-6 flex items-center justify-between">
+        <div>
+          <span class="mono-label block mb-1">Live demo</span>
+          <h1
+            class="font-sans font-medium text-ink"
+            style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+          >
+            Talk to Sarah — AI assistant
+          </h1>
+        </div>
+        <button data-logout class="mono-label underline hover:text-ink transition-colors">
+          Sign out
+        </button>
+      </div>
+
+      <div
+        data-chat-window
+        class="flex flex-col rounded-sm border overflow-hidden"
+        style="height: 520px; border-color: var(--color-rule-strong); background: var(--color-bg-deep);"
+      >
+        <!-- Agent name bar -->
+        <div
+          class="flex items-center gap-3 px-5 py-3 border-b"
+          style="border-color: var(--color-rule-strong); background: var(--color-bg);"
+        >
+          <div class="w-2 h-2 rounded-full" style="background: var(--color-accent);"></div>
+          <span class="mono-label">Sarah · ClearSlope Pest Control</span>
+        </div>
+
+        <!-- Messages -->
+        <div
+          data-chat-messages
+          class="flex-1 overflow-y-auto p-5 flex flex-col gap-3"
+          aria-live="polite"
+          aria-label="Chat messages"
+        ></div>
+
+        <!-- Input -->
+        <div
+          class="border-t p-4 flex gap-3 items-end"
+          style="border-color: var(--color-rule-strong); background: var(--color-bg);"
+        >
+          <textarea
+            data-chat-input
+            rows="1"
+            placeholder="Type a message…"
+            class="flex-1 resize-none cs-chat-input"
+            aria-label="Your message"
+            disabled
+          ></textarea>
+          <button
+            data-chat-send
+            class="cta-primary shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Send"
+            disabled
+          >Send</button>
+        </div>
+      </div>
+
+      <p class="mono-label mt-3" style="color: color-mix(in oklab, var(--color-ink-soft) 70%, transparent);">
+        Text demo — the real agent handles inbound calls by phone.
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .cs-input {
+    border: 1px solid color-mix(in oklab, var(--color-ink) 16%, transparent);
+    background: color-mix(in oklab, var(--color-bg-deep) 55%, transparent);
+    padding: 0.9rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    border-radius: 4px;
+    transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  }
+  .cs-input::placeholder {
+    color: color-mix(in oklab, var(--color-ink) 38%, transparent);
+  }
+  .cs-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+  }
+
+  .cs-chat-input {
+    border: 1px solid color-mix(in oklab, var(--color-ink) 16%, transparent);
+    background: color-mix(in oklab, var(--color-bg-deep) 55%, transparent);
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    border-radius: 4px;
+    line-height: 1.4;
+    max-height: 96px;
+    transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  }
+  .cs-chat-input::placeholder {
+    color: color-mix(in oklab, var(--color-ink) 38%, transparent);
+  }
+  .cs-chat-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 14%, transparent);
+  }
+  .cs-chat-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .bubble-agent {
+    align-self: flex-start;
+    background: var(--color-bg);
+    border: 1px solid var(--color-rule-strong);
+    color: var(--color-ink);
+    padding: 0.65rem 0.9rem;
+    border-radius: 0 10px 10px 10px;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    max-width: 82%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .bubble-user {
+    align-self: flex-end;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px 10px 0 10px;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    max-width: 82%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .bubble-typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.75rem 0.9rem;
+    min-width: 3rem;
+  }
+  .bubble-typing span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--color-ink-soft);
+    border-radius: 50%;
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+  .bubble-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .bubble-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing-dot {
+    0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const API_URL = document.querySelector("[data-demo-api-url]")?.dataset.demoApiUrl ?? "http://localhost:8080";
+    const TOKEN_KEY = "cs_demo_token";
+
+    const loginPanel  = document.querySelector("[data-login-panel]");
+    const chatPanel   = document.querySelector("[data-chat-panel]");
+    const loginForm   = document.querySelector("[data-login-form]");
+    const loginSubmit = document.querySelector("[data-login-submit]");
+    const loginLabel  = document.querySelector("[data-login-label]");
+    const loginError  = document.querySelector("[data-login-error]");
+    const logoutBtn   = document.querySelector("[data-logout]");
+    const messagesEl  = document.querySelector("[data-chat-messages]");
+    const input       = document.querySelector("[data-chat-input]");
+    const sendBtn     = document.querySelector("[data-chat-send]");
+
+    // ── Auth state ──────────────────────────────────────────────────
+    function showChat() {
+      loginPanel.classList.add("hidden");
+      chatPanel.classList.remove("hidden");
+    }
+    function showLogin() {
+      chatPanel.classList.add("hidden");
+      loginPanel.classList.remove("hidden");
+    }
+
+    const existingToken = sessionStorage.getItem(TOKEN_KEY);
+    if (existingToken) {
+      showChat();
+      initChat(existingToken);
+    }
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      loginError.classList.add("hidden");
+      const username = loginForm.querySelector("[name=username]").value.trim();
+      const password = loginForm.querySelector("[name=password]").value;
+      if (!username || !password) return;
+
+      loginSubmit.disabled = true;
+      loginLabel.textContent = "Checking…";
+
+      try {
+        const res = await fetch(API_URL + "/auth/demo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.token) throw new Error();
+        sessionStorage.setItem(TOKEN_KEY, json.token);
+        showChat();
+        initChat(json.token);
+      } catch {
+        loginError.classList.remove("hidden");
+        loginSubmit.disabled = false;
+        loginLabel.textContent = "Enter";
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      sessionStorage.removeItem(TOKEN_KEY);
+      showLogin();
+    });
+
+    // ── Chat ────────────────────────────────────────────────────────
+    function initChat(token) {
+      const sessionId =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : Date.now().toString(36);
+
+      let messages = [];
+      let ended = false;
+      let typingEl = null;
+
+      function scrollBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
+
+      function addBubble(role, text) {
+        const div = document.createElement("div");
+        div.className = role === "user" ? "bubble-user" : "bubble-agent";
+        div.textContent = text;
+        messagesEl.appendChild(div);
+        scrollBottom();
+      }
+
+      function showTyping() {
+        typingEl = document.createElement("div");
+        typingEl.className = "bubble-agent bubble-typing";
+        typingEl.innerHTML = "<span></span><span></span><span></span>";
+        messagesEl.appendChild(typingEl);
+        scrollBottom();
+      }
+
+      function hideTyping() { typingEl?.remove(); typingEl = null; }
+
+      function setControls(on) {
+        input.disabled = !on;
+        sendBtn.disabled = !on;
+      }
+
+      async function send(userText) {
+        if (ended) return;
+        if (userText) {
+          messages.push({ role: "user", content: userText });
+          addBubble("user", userText);
+        }
+        setControls(false);
+        showTyping();
+        try {
+          const res = await fetch(API_URL + "/text-chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + token,
+            },
+            body: JSON.stringify({ session_id: sessionId, messages }),
+          });
+          const json = await res.json().catch(() => ({}));
+          hideTyping();
+          if (res.status === 401) {
+            sessionStorage.removeItem(TOKEN_KEY);
+            showLogin();
+            return;
+          }
+          if (!res.ok) throw new Error(json.error || res.statusText);
+          messages.push({ role: "assistant", content: json.reply });
+          addBubble("agent", json.reply);
+          if (json.ended) {
+            ended = true;
+            const note = document.createElement("p");
+            note.className = "mono-label";
+            note.style.cssText = "text-align:center;margin-top:0.5rem;color:color-mix(in oklab,var(--color-ink-soft) 70%,transparent)";
+            note.textContent = "Sarah ended the call. Refresh to start over.";
+            messagesEl.appendChild(note);
+            scrollBottom();
+            return;
+          }
+        } catch {
+          hideTyping();
+          const errEl = document.createElement("p");
+          errEl.className = "mono-label";
+          errEl.style.color = "color-mix(in oklab,var(--color-ink-soft) 70%,transparent)";
+          errEl.textContent = "Connection error — try again in a moment.";
+          messagesEl.appendChild(errEl);
+          scrollBottom();
+        }
+        if (!ended) { setControls(true); input.focus(); }
+      }
+
+      input.addEventListener("input", () => {
+        input.style.height = "auto";
+        input.style.height = Math.min(input.scrollHeight, 96) + "px";
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          const text = input.value.trim();
+          if (text) { input.value = ""; input.style.height = "auto"; send(text); }
+        }
+      });
+      sendBtn.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (text) { input.value = ""; input.style.height = "auto"; send(text); }
+      });
+
+      // Kick off greeting
+      messages.push({ role: "user", content: "[the phone rings — caller has just connected]" });
+      send();
+    }
+  })();
+</script>

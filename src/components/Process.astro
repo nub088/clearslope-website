@@ -1,0 +1,64 @@
+---
+const steps = [
+  {
+    num: "01",
+    label: "Discovery",
+    body:
+      "30-minute call. We map where you are, where you want to be, what's worth automating, what's worth ranking. You leave with a concrete recommendation either way.",
+  },
+  {
+    num: "02",
+    label: "Build",
+    body:
+      "We design and build it. You see progress weekly: working software, not slide decks. No mystery and no consultant-speak.",
+  },
+  {
+    num: "03",
+    label: "Ship",
+    body:
+      "We hand it off, document it, train your team, and stay reachable. The systems we build outlast our engagement.",
+  },
+];
+---
+
+<section id="process" class="py-24 md:py-32 bg-bg-deep border-t border-rule">
+  <div class="container-page">
+    <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16" data-reveal>
+      <div class="flex items-center gap-3">
+        <span class="mono-label">Process</span>
+        <span class="h-px w-12 bg-rule"></span>
+      </div>
+      <h2
+        class="font-sans font-medium text-ink max-w-[20ch]"
+        style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+      >
+        Discovery → Build → Ship. No drag.
+      </h2>
+    </header>
+
+    <ol class="grid grid-cols-1 md:grid-cols-3 gap-x-2" data-reveal-stagger data-reveal-stagger-slow>
+      {steps.map((s, i) => (
+        <li class="relative pt-10 pb-2 md:pr-6">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-mono text-[2rem] font-medium tabular-nums text-accent leading-none">
+              {s.num}
+            </span>
+            <span class="h-px flex-1 bg-rule"></span>
+            {i < steps.length - 1 && (
+              <span class="hidden md:inline text-accent text-xl leading-none -ml-2 -mr-2" aria-hidden="true">↗</span>
+            )}
+          </div>
+          <h3
+            class="font-sans font-medium text-ink mb-3"
+            style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+          >
+            {s.label}
+          </h3>
+          <p class="text-ink-soft leading-relaxed max-w-[42ch]" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">
+            {s.body}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
