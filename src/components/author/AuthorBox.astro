@@ -1,0 +1,46 @@
+---
+import { AUTHOR } from "../../data/author";
+---
+<aside class="mt-16 p-8 md:p-10 rounded-sm border border-rule-strong bg-bg-deep">
+  <div class="flex flex-col md:flex-row gap-6 items-start">
+    <img
+      src={AUTHOR.imagePath160}
+      width="80"
+      height="80"
+      alt={AUTHOR.name}
+      class="rounded-full shrink-0"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="flex-1">
+      <h3
+        class="font-sans font-medium text-ink"
+        style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+      >
+        <a href="/about/" class="hover:text-accent">{AUTHOR.name}</a>
+      </h3>
+      <p class="mono-label mt-1">{AUTHOR.jobTitle}</p>
+      <p class="text-ink-soft mt-4 leading-relaxed" style="font-size: var(--text-body);">
+        {AUTHOR.shortBio}
+      </p>
+      <div class="mt-6 flex flex-wrap items-center gap-5">
+        <a
+          href="/book/"
+          class="cta-primary-large group hover:bg-accent-hover hover:-translate-y-px"
+        >
+          Book a discovery call
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={AUTHOR.sameAs[0]}
+          rel="noopener"
+          target="_blank"
+          class="link-mono inline-flex items-center gap-1.5 hover:text-accent"
+        >
+          <span>LinkedIn</span>
+          <span class="text-accent">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>

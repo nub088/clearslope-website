@@ -1,0 +1,47 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  publishDate: Date;
+  readingMinutes: number;
+  cluster: "pest-control" | "voice-agent" | "operator-pov";
+}
+const { href, title, description, publishDate, readingMinutes, cluster } =
+  Astro.props;
+const labels: Record<string, string> = {
+  "pest-control": "Pest Control",
+  "voice-agent": "Voice Agents",
+  "operator-pov": "Operator POV",
+};
+const formatted = publishDate.toLocaleDateString("en-CA", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+<article class="group flex flex-col p-6 md:p-8 rounded-sm border border-rule-strong bg-bg-deep hover:border-accent/40 lift-on-hover hover:-translate-y-1">
+  <div class="flex items-baseline justify-between mb-4">
+    <span class="mono-label !text-accent">{labels[cluster]}</span>
+    <span class="mono-label">{readingMinutes} min</span>
+  </div>
+  <h3
+    class="font-sans font-medium text-ink mb-3"
+    style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+  >
+    <a href={href} class="hover:text-accent">{title}</a>
+  </h3>
+  <p class="text-ink-soft leading-relaxed mb-6" style="font-size: var(--text-body);">
+    {description}
+  </p>
+  <div class="mt-auto flex items-center justify-between">
+    <span class="mono-label">{formatted}</span>
+    <a
+      href={href}
+      class="link-mono inline-flex items-center gap-1.5 group-hover:text-accent"
+    >
+      <span>Read</span>
+      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+    </a>
+  </div>
+</article>

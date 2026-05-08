@@ -1,0 +1,104 @@
+---
+import { WEB3FORMS_ACCESS_KEY } from "../../data/site";
+interface Props { variant?: "inline" | "stacked" }
+const { variant = "inline" } = Astro.props;
+---
+<form
+  data-newsletter-form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  novalidate
+  class:list={[
+    variant === "inline"
+      ? "flex flex-col sm:flex-row gap-3 items-stretch sm:items-end"
+      : "flex flex-col gap-3",
+  ]}
+>
+  <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+  <input
+    type="hidden"
+    name="subject"
+    value="Newsletter signup — clearslopedigital.com"
+  />
+  <input type="hidden" name="from_name" value="Newsletter signup" />
+  <input
+    type="checkbox"
+    name="botcheck"
+    class="hidden"
+    tabindex="-1"
+    autocomplete="off"
+  />
+
+  <div class="flex flex-col gap-2 flex-1">
+    <label for="newsletter-email" class="mono-label">Email</label>
+    <input
+      id="newsletter-email"
+      name="email"
+      type="email"
+      required
+      autocomplete="email"
+      class="cs-input"
+      placeholder="you@yourbusiness.com"
+    />
+  </div>
+
+  <button
+    type="submit"
+    data-newsletter-submit
+    class="cta-primary-large group hover:bg-accent-hover hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none whitespace-nowrap"
+  >
+    <span data-newsletter-button-label>Subscribe</span>
+    <span aria-hidden="true">↗</span>
+  </button>
+</form>
+
+<p data-newsletter-status class="mono-label mt-3" role="status" aria-live="polite">
+  ~2 posts/month. No tracking, no spam.
+</p>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-newsletter-form]");
+    if (!form) return;
+    const status = form.parentElement.querySelector("[data-newsletter-status]");
+    const button = form.querySelector("[data-newsletter-submit]");
+    const label = form.querySelector("[data-newsletter-button-label]");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const botcheck = form.querySelector('input[name="botcheck"]');
+      if (botcheck && botcheck.checked) return;
+
+      const email = form.querySelector('input[name="email"]');
+      if (!email.checkValidity()) {
+        email.focus();
+        status.textContent = "Enter a valid email.";
+        return;
+      }
+
+      button.disabled = true;
+      label.textContent = "Sending…";
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success) {
+          form.hidden = true;
+          status.textContent = "Subscribed. Talk soon.";
+        } else {
+          status.textContent = (json && json.message) || "Could not send.";
+          button.disabled = false;
+          label.textContent = "Subscribe";
+        }
+      } catch {
+        status.textContent = "Network error. Try again.";
+        button.disabled = false;
+        label.textContent = "Subscribe";
+      }
+    });
+  })();
+</script>

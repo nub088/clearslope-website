@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  num: string;
+  title: string;
+  body: string;
+  outcomes: string[];
+}
+const { href, num, title, body, outcomes } = Astro.props;
+---
+<article class="group flex flex-col p-8 md:p-10 rounded-sm border border-rule-strong bg-bg-deep hover:border-accent/40 lift-on-hover hover:-translate-y-1">
+  <div class="flex items-baseline justify-between mb-6">
+    <span class="mono-label !text-accent">{num}</span>
+  </div>
+  <h3
+    class="font-sans font-medium text-ink mb-5"
+    style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+  >
+    <a href={href} class="hover:text-accent">{title}</a>
+  </h3>
+  <p class="text-ink-soft leading-relaxed mb-8" style="font-size: var(--text-body);">
+    {body}
+  </p>
+  <ul class="flex flex-col gap-2 mb-10 pt-6 border-t border-rule">
+    {outcomes.map((o) => (
+      <li class="flex items-start gap-3 text-ink" style="font-size: var(--text-body);">
+        <span class="text-accent mt-[2px] shrink-0">↗</span>
+        <span>{o}</span>
+      </li>
+    ))}
+  </ul>
+  <a
+    href={href}
+    class="link-mono inline-flex items-center gap-1.5 mt-auto self-start group-hover:text-accent"
+  >
+    <span>Read more</span>
+    <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+  </a>
+</article>

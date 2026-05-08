@@ -1,0 +1,33 @@
+---
+import { AUTHOR } from "../../data/author";
+interface Props {
+  publishDate: Date;
+  readingMinutes: number;
+}
+const { publishDate, readingMinutes } = Astro.props;
+const formatted = publishDate.toLocaleDateString("en-CA", {
+  weekday: "short",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+<div class="flex items-center gap-3 py-4 border-y border-rule">
+  <img
+    src={AUTHOR.imagePath64}
+    width="32"
+    height="32"
+    alt={AUTHOR.name}
+    class="rounded-full"
+    loading="eager"
+    decoding="async"
+  />
+  <div class="flex flex-col">
+    <span class="text-ink font-medium" style="font-size: 0.95rem;">
+      By <a href="/about/" class="hover:text-accent">{AUTHOR.name}</a> · {AUTHOR.jobTitle}
+    </span>
+    <span class="mono-label">
+      Published {formatted} · {readingMinutes} min read
+    </span>
+  </div>
+</div>

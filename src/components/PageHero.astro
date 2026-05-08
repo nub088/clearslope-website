@@ -1,0 +1,33 @@
+---
+interface Props {
+  eyebrow?: string;
+  h1: string;
+  lede?: string;
+}
+const { eyebrow, h1, lede } = Astro.props;
+---
+<section class="pt-12 pb-12 md:pt-16 md:pb-16 border-b border-rule">
+  <div class="container-page">
+    {eyebrow && (
+      <div class="flex items-center gap-3 mb-6">
+        <span class="mono-label">{eyebrow}</span>
+        <span class="h-px w-12 bg-rule"></span>
+      </div>
+    )}
+    <h1
+      class="font-sans font-semibold tracking-tight text-ink max-w-[28ch]"
+      style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing);"
+    >
+      <slot name="h1">{h1}</slot>
+    </h1>
+    {lede && (
+      <p
+        class="mt-8 max-w-[60ch] text-ink-soft leading-relaxed"
+        style="font-size: var(--text-body); line-height: var(--text-body--line-height);"
+      >
+        {lede}
+      </p>
+    )}
+    <slot />
+  </div>
+</section>
