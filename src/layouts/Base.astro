@@ -24,6 +24,7 @@ const { meta, schema } = Astro.props;
 
     <PageMeta meta={meta} />
     {schema ? <JsonLd data={schema} /> : null}
+    <slot name="head" />
   </head>
   <body class="bg-bg text-ink antialiased">
     <slot />
