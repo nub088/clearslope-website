@@ -5,18 +5,61 @@ publishDate: 2026-06-09
 cluster: voice-agent
 ---
 
+The pitch for AI voice agents is usually framed in terms of features: 24/7 availability, instant answers, automatic scheduling. The pitch is fine, but it doesn't answer the question that actually matters: does it pay for itself?
+
+This is a unit-economics question, and it has a clear answer if you're willing to run the numbers for your specific business. Here's how to do it.
+
 ## The three numbers that matter
 
-[CONTENT TODO — average ticket size, missed-call rate, conversion-on-pickup. ~300 words.]
+You need three inputs:
+
+**1. Average job ticket value.** What does an average booked job generate in revenue? For residential pest control, this might be $350–600 depending on service type and market. For HVAC service calls, $150–500. For plumbing, $200–600. Use your actual average, not your best-case.
+
+**2. Voicemail conversion gap.** What percentage of calls that reach a live dispatcher convert to a booked job, versus calls that go to voicemail and get a callback? If you don't have this number, a reasonable starting estimate for service businesses is: live answered call converts at 55–70%, voicemail callback converts at 15–30%. The gap is roughly 35–40 percentage points.
+
+**3. Voicemail call volume.** How many calls per month go to voicemail or reach an overwhelmed dispatcher who can't give the call full attention? This is the number most operators underestimate. Look at your call records for the last 30 days and count. Add after-hours calls. Add peak-hour windows where a second simultaneous call would have gone to voicemail.
 
 ## Run the math
 
-[CONTENT TODO — formula and worked example. ~500 words.]
+Here's the formula:
+
+```
+Monthly recovered revenue = 
+  voicemail call volume × conversion gap × average ticket
+```
+
+Example: A pest control operator receiving 80 calls per month, with 20 of them going to voicemail or getting a degraded dispatcher experience. Average ticket is $450. Conversion gap is 35 percentage points (70% live vs. 35% callback).
+
+```
+20 calls × 0.35 gap × $450 = $3,150/month in recoverable revenue
+```
+
+That's the ceiling, not a guarantee. Not every voicemail call represents a quality lead. Some callers will go with a competitor regardless of your callback speed. A realistic recovery rate might be 50–70% of that ceiling.
+
+At 60% recovery: **$1,890/month** in revenue that a voice agent can capture that voicemail can't.
+
+Now compare that against the cost of the agent. If the agent costs $800/month, it's profitable at roughly 60% recovery efficiency on 20 voicemail calls per month on a $450 ticket. If your call volume is higher, your ticket is larger, or your voicemail rate is worse — the math improves.
 
 ## When it doesn't pay yet
 
-[CONTENT TODO — honest disqualifiers: low call volume, low ticket, fully-staffed front office. ~300 words.]
+There are situations where the economics don't work:
 
-## Compared to alternatives
+**Low call volume.** If you're receiving fewer than 20–30 inbound calls per month, the recovery opportunity is small. A $500/month agent needs to recover roughly one $500 job per month to break even. With 20 calls, maybe 5 going to voicemail, that's theoretically achievable — but the margin of error is thin. At this volume, an answering service at $100/month is probably the right tool.
 
-[CONTENT TODO — answering service (~$50-200/mo, but no qualification), part-time receptionist ($1500-3500/mo). ~400 words.]
+**Very low ticket value.** If your average job is $75–100, the per-recovered-call revenue is modest. The math still works eventually, but the break-even point requires higher call volume or higher voicemail rates. For high-volume, low-ticket businesses (pest control commodity services, etc.), this can still work — but the model needs to account for volume, not per-call revenue.
+
+**Fully staffed front desk.** If you have a dedicated dispatcher or receptionist who answers every call reliably, and your voicemail rate is genuinely low (under 5%), the incremental improvement from a voice agent is small. The case for a voice agent weakens when you've already solved the coverage problem with human labor.
+
+**Complex sales process.** If every incoming call requires a custom quote that can't follow a qualification script — unusual property configurations, specialized services, commercial bids — a voice agent adds less value on the intake side. It can still handle FAQ calls and simple bookings, but the qualification logic can't be templated, which limits what it can independently resolve.
+
+## Compared to the alternatives
+
+**Answering service:** $50–200/month. Solves coverage (someone answers). Doesn't solve conversion (they take a message). You still have the callback problem. Net effect: your answer rate goes up, your conversion rate doesn't improve much. Right tool if budget is constrained and you just need calls answered.
+
+**Part-time receptionist:** $1,500–3,500/month depending on hours and market. Solves coverage and conversion for the hours they're present. Doesn't solve after-hours or peak-surge windows. Creates a personnel dependency. Right tool if you need a human in the loop for complex call handling throughout business hours.
+
+**AI voice agent:** Custom pricing based on volume and integration. Solves coverage 24/7 and conversion for qualifying calls. Doesn't replace a dispatcher for complex situations — routes those to a human. Right tool when your call volume is above ~30/month, your ticket is above ~$200, and you have a meaningful voicemail rate.
+
+The comparison isn't "voice agent vs. nothing." It's "voice agent vs. the current leakage rate vs. the best available alternative." That comparison changes depending on your call volume, your ticket size, and your existing coverage gaps.
+
+For a detailed look at how this played out in a real engagement, see [the case study](/work/pest-control-vancouver/). For the service description and what a build includes, see [AI Voice Agents for Service Businesses](/services/ai-voice-agent/).
