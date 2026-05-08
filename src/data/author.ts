@@ -23,5 +23,5 @@ export const AUTHOR = {
     "Conversion rate optimization",
   ] as const,
   shortBio:
-    "Mo Habib builds AI voice agents, agentic workflows, and local SEO systems for service businesses across Canada and the US. Mechanical engineer turned founder, working solo and direct.",
+    "Mo Habib builds AI voice agents, agentic workflows, and local SEO systems for service businesses across Canada and the US. Engineering background, systems thinker, working founder-direct.",
 } as const;
