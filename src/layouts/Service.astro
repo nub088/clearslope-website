@@ -1,0 +1,142 @@
+---
+import Page from "./Page.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CalEmbed from "../components/cta/CalEmbed.astro";
+import { buildPageMeta } from "../lib/seo";
+import {
+  buildService,
+  buildFaqPage,
+  buildBreadcrumbs,
+} from "../lib/schema";
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"services">;
+}
+const { entry } = Astro.props;
+const data = entry.data;
+const path = `/services/${data.slug}/`;
+
+const meta = buildPageMeta({
+  title: data.title,
+  description: data.description,
+  path,
+  ogType: "website",
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+  { name: data.title, path },
+];
+const schema = [
+  buildService({
+    name: data.h1,
+    description: data.description,
+    slug: path,
+    serviceType: data.serviceType,
+  }),
+  buildFaqPage(data.faq),
+  buildBreadcrumbs(crumbs),
+];
+const { Content } = await render(entry);
+---
+<Page meta={meta} schema={schema}>
+  <PageHero eyebrow="Service" h1={data.h1} lede={data.description}>
+    <div class="mt-10 flex flex-wrap items-center gap-5">
+      <a href="/book/" class="cta-primary-large hover:bg-accent-hover hover:-translate-y-px">
+        Book a discovery call
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a href="#faq" class="link-mono inline-flex items-center gap-1.5 hover:text-accent">
+        <span>Skip to FAQ</span>
+        <span class="text-accent">↓</span>
+      </a>
+    </div>
+  </PageHero>
+
+  <article class="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 py-16 md:py-20">
+    <div class="lg:col-span-2">
+      <Breadcrumbs items={crumbs} />
+    </div>
+    <div class="lg:col-span-8 prose-content">
+      <Content />
+
+      <section id="faq" class="mt-16">
+        <h2
+          class="font-sans font-medium text-ink mb-8"
+          style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+        >
+          Frequently asked questions
+        </h2>
+        <dl class="flex flex-col gap-6">
+          {data.faq.map((it) => (
+            <div class="border-t border-rule pt-6">
+              <dt
+                class="font-sans font-medium text-ink mb-3"
+                style="font-size: var(--text-h3);"
+              >
+                {it.q}
+              </dt>
+              <dd class="text-ink-soft leading-relaxed" style="font-size: var(--text-body);">
+                {it.a}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    </div>
+  </article>
+
+  <section class="container-page py-16 md:py-20 border-t border-rule">
+    <h2
+      class="font-sans font-medium text-ink mb-10"
+      style="font-size: var(--text-h2); line-height: var(--text-h2--line-height);"
+    >
+      Book a call
+    </h2>
+    <CalEmbed variant="compact" />
+  </section>
+</Page>
+
+<style is:global>
+  .prose-content h2 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    letter-spacing: var(--text-h2--letter-spacing);
+  }
+  .prose-content h3 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: var(--text-h3--letter-spacing);
+  }
+  .prose-content p {
+    color: var(--color-ink-soft);
+    line-height: 1.65;
+    font-size: var(--text-body);
+    margin-bottom: 1rem;
+  }
+  .prose-content ul, .prose-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-ink-soft);
+  }
+  .prose-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .prose-content a:hover {
+    color: var(--color-accent-hover);
+  }
+</style>

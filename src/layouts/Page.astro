@@ -1,0 +1,20 @@
+---
+import Base from "./Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import type { PageMeta } from "../lib/seo";
+
+interface Props {
+  meta: PageMeta;
+  schema?: unknown | unknown[];
+}
+
+const { meta, schema } = Astro.props;
+---
+<Base meta={meta} schema={schema}>
+  <Nav />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</Base>

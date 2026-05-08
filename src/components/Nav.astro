@@ -1,7 +1,9 @@
 ---
-const calLink = "#book";
+import { NAV_LINKS } from "../data/site";
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
-
 <header class="sticky top-0 z-40 bg-bg/85 backdrop-blur-md border-b border-rule">
   <div class="container-page flex items-center justify-between h-16">
     <a href="/" class="group flex items-baseline gap-1.5 font-mono text-[0.875rem] tracking-[0.04em] uppercase text-ink hover:text-accent transition-colors">
@@ -10,14 +12,33 @@ const calLink = "#book";
       <span class="font-medium">Slope</span>
     </a>
 
-    <nav class="flex items-center gap-6">
+    <nav class="hidden md:flex items-center gap-6">
+      {NAV_LINKS.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            "link-mono hover:text-accent",
+            isActive(l.href) && "text-accent",
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
       <a
-        href={calLink}
-        class="link-mono inline-flex items-center gap-1.5 hover:text-accent"
+        href="/book/"
+        class="link-mono inline-flex items-center gap-1.5 text-accent hover:text-accent-hover"
       >
-        <span>book a call</span>
-        <span class="text-accent transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+        <span>Book a call</span>
+        <span aria-hidden="true">↗</span>
       </a>
     </nav>
+
+    <a
+      href="/book/"
+      class="md:hidden link-mono inline-flex items-center gap-1.5 text-accent"
+    >
+      <span>Book</span>
+      <span aria-hidden="true">↗</span>
+    </a>
   </div>
 </header>

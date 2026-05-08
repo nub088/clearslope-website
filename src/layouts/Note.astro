@@ -1,0 +1,77 @@
+---
+import Page from "./Page.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import AuthorByline from "../components/author/AuthorByline.astro";
+import AuthorBox from "../components/author/AuthorBox.astro";
+import NewsletterForm from "../components/forms/NewsletterForm.astro";
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { buildPageMeta } from "../lib/seo";
+import { buildArticle, buildBreadcrumbs } from "../lib/schema";
+import { readingTimeMinutes } from "../lib/reading-time";
+
+interface Props {
+  entry: CollectionEntry<"notes">;
+}
+const { entry } = Astro.props;
+const data = entry.data;
+const path = `/notes/${entry.id}/`;
+const minutes = readingTimeMinutes(entry.body);
+
+const meta = buildPageMeta({
+  title: data.title,
+  description: data.description,
+  path,
+  ogType: "article",
+  ogImage: data.image,
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Notes", path: "/notes/" },
+  { name: data.title, path },
+];
+const schema = [
+  buildArticle({
+    headline: data.title,
+    description: data.description,
+    slug: path,
+    datePublished: data.publishDate.toISOString().slice(0, 10),
+    dateModified: (data.updatedDate ?? data.publishDate)
+      .toISOString()
+      .slice(0, 10),
+    image: meta.ogImageAbsolute,
+  }),
+  buildBreadcrumbs(crumbs),
+];
+
+const { Content } = await render(entry);
+---
+<Page meta={meta} schema={schema}>
+  <article class="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 pt-12 pb-16 md:pt-16">
+    <div class="lg:col-span-2">
+      <Breadcrumbs items={crumbs} />
+    </div>
+    <div class="lg:col-span-8 max-w-[var(--container-prose)]">
+      <h1
+        class="font-sans font-semibold tracking-tight text-ink"
+        style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing);"
+      >
+        {data.title}
+      </h1>
+      <AuthorByline publishDate={data.publishDate} readingMinutes={minutes} />
+      <div class="prose-content mt-12">
+        <Content />
+      </div>
+      <AuthorBox />
+      <section class="mt-16 border-t border-rule pt-12">
+        <h3
+          class="font-sans font-medium text-ink mb-4"
+          style="font-size: var(--text-h3);"
+        >
+          Get new notes when they ship.
+        </h3>
+        <NewsletterForm />
+      </section>
+    </div>
+  </article>
+</Page>

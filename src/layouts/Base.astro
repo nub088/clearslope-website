@@ -1,33 +1,16 @@
 ---
 import "../styles/global.css";
+import PageMeta from "../components/seo/PageMeta.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import type { PageMeta as PageMetaT } from "../lib/seo";
 
 interface Props {
-  title?: string;
-  description?: string;
-  ogImage?: string;
+  meta: PageMetaT;
+  schema?: unknown | unknown[];
 }
 
-const {
-  title = "Clear Slope Digital | AI automation & local SEO for SMBs",
-  description = "Agentic workflows and local SEO for small and mid-sized businesses. We build the systems your business has been trying to hire for.",
-  ogImage = "/img/og.webp",
-} = Astro.props;
-
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://clearslopedigital.com").toString();
-const ogImageUrl = new URL(ogImage, Astro.site ?? "https://clearslopedigital.com").toString();
-
-const localBusiness = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Clear Slope Digital",
-  url: "https://clearslopedigital.com",
-  description,
-  areaServed: ["North America"],
-  serviceType: ["AI Automation", "Agentic Workflows", "Local SEO"],
-  priceRange: "$$$",
-};
+const { meta, schema } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,26 +19,11 @@ const localBusiness = {
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
-
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Clear Slope Digital — Notes" href="/notes/rss.xml" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="Clear Slope Digital" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageUrl} />
-
-    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} is:inline />
+    <PageMeta meta={meta} />
+    {schema ? <JsonLd data={schema} /> : null}
   </head>
   <body class="bg-bg text-ink antialiased">
     <slot />

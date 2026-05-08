@@ -1,17 +1,48 @@
 ---
+import NewsletterForm from "./forms/NewsletterForm.astro";
+import { NAV_LINKS, ORG_ADDRESS, SITE_NAME } from "../data/site";
+import { AUTHOR } from "../data/author";
 const year = new Date().getFullYear();
 ---
-
-<footer class="border-t border-rule py-12">
-  <div class="container-page flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-    <a href="/" class="flex items-baseline gap-1.5 font-mono text-[0.875rem] tracking-[0.04em] uppercase text-ink hover:text-accent transition-colors">
-      <span class="font-medium">Clear</span>
-      <span class="text-accent">/</span>
-      <span class="font-medium">Slope</span>
-    </a>
-
-    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mono-label">
-      <span>© {year} Clear Slope Digital</span>
+<footer class="border-t border-rule pt-16 pb-12 mt-24">
+  <div class="container-page grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <a href="/" class="flex items-baseline gap-1.5 font-mono text-[0.875rem] tracking-[0.04em] uppercase text-ink hover:text-accent transition-colors">
+        <span class="font-medium">Clear</span>
+        <span class="text-accent">/</span>
+        <span class="font-medium">Slope</span>
+      </a>
+      <p class="mt-4 text-ink-soft max-w-[42ch] leading-relaxed" style="font-size: var(--text-body);">
+        AI voice agents, agentic workflows, and local SEO for service businesses across Canada and the US.
+      </p>
+      <p class="mt-4 mono-label">
+        {ORG_ADDRESS.addressLocality}, {ORG_ADDRESS.addressRegion}, {ORG_ADDRESS.addressCountry}
+      </p>
     </div>
+
+    <nav class="md:col-span-3 flex flex-col gap-3">
+      <span class="mono-label">Site</span>
+      {NAV_LINKS.map((l) => (
+        <a href={l.href} class="text-ink hover:text-accent" style="font-size: var(--text-body);">
+          {l.label}
+        </a>
+      ))}
+      <a href="/book/" class="text-ink hover:text-accent" style="font-size: var(--text-body);">
+        Book a call
+      </a>
+      <a href={AUTHOR.sameAs[0]} rel="noopener" target="_blank" class="text-ink hover:text-accent" style="font-size: var(--text-body);">
+        LinkedIn
+      </a>
+    </nav>
+
+    <div class="md:col-span-4">
+      <span class="mono-label block mb-3">Newsletter</span>
+      <NewsletterForm variant="stacked" />
+    </div>
+  </div>
+
+  <div class="container-page mt-12 pt-8 border-t border-rule flex flex-wrap items-center justify-between gap-4 mono-label">
+    <span>© {year} {SITE_NAME}</span>
+    <span>Built with Astro</span>
   </div>
 </footer>
