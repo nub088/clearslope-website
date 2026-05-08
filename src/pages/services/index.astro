@@ -1,0 +1,52 @@
+---
+import Page from "../../layouts/Page.astro";
+import PageHero from "../../components/PageHero.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { getCollection } from "astro:content";
+import { buildPageMeta } from "../../lib/seo";
+import { buildBreadcrumbs, buildCollectionPage } from "../../lib/schema";
+
+const entries = (await getCollection("services")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const meta = buildPageMeta({
+  title: "Services",
+  description:
+    "AI voice agents, agentic workflows, and local SEO for service businesses across Canada and the US. Custom-built, fixed fee, no per-lead pricing.",
+  path: "/services/",
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services/" },
+];
+const schema = [
+  buildCollectionPage({
+    name: "Services",
+    description: meta.description,
+    slug: "/services/",
+  }),
+  buildBreadcrumbs(crumbs),
+];
+const numbers = ["01", "02", "03"];
+---
+<Page meta={meta} schema={schema}>
+  <PageHero
+    eyebrow="Services"
+    h1="Three services. One operator."
+    lede="Voice agents, workflows, and local SEO. Built custom, scoped to your business, billed on a fixed fee."
+  />
+  <section class="container-page py-16 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+      {entries.map((e, i) => (
+        <ServiceCard
+          href={`/services/${e.data.slug}/`}
+          num={numbers[i]}
+          title={e.data.h1}
+          body={e.data.description}
+          outcomes={e.data.faq.slice(0, 3).map((f) => f.q)}
+        />
+      ))}
+    </div>
+  </section>
+</Page>

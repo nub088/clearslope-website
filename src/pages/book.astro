@@ -1,0 +1,29 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/PageHero.astro";
+import CalEmbed from "../components/cta/CalEmbed.astro";
+import { buildPageMeta } from "../lib/seo";
+import { buildBreadcrumbs } from "../lib/schema";
+
+const meta = buildPageMeta({
+  title: "Book a discovery call",
+  description:
+    "Book a 30-minute discovery call with Mo Habib at Clear Slope Digital. We'll talk about what's worth automating or ranking in your service business.",
+  path: "/book/",
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Book", path: "/book/" },
+];
+const schema = [buildBreadcrumbs(crumbs)];
+---
+<Page meta={meta} schema={schema}>
+  <PageHero
+    eyebrow="Book"
+    h1="Book a 30-minute discovery call."
+    lede="Tell me about your business and what's worth automating or ranking. I'll reply within 24 hours if the call doesn't fit your schedule."
+  />
+  <section class="container-page py-12 md:py-16">
+    <CalEmbed />
+  </section>
+</Page>

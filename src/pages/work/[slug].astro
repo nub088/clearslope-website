@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Work from "../../layouts/Work.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("work");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+<Work entry={entry} />

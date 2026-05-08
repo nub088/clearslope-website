@@ -1,0 +1,64 @@
+---
+import Page from "../../layouts/Page.astro";
+import PageHero from "../../components/PageHero.astro";
+import { getCollection } from "astro:content";
+import { buildPageMeta } from "../../lib/seo";
+import { buildCollectionPage, buildBreadcrumbs } from "../../lib/schema";
+
+const all = await getCollection("work");
+all.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+
+const meta = buildPageMeta({
+  title: "Work",
+  description:
+    "Case studies from Clear Slope Digital builds — anonymized, specific, anchored to numbers we can defend.",
+  path: "/work/",
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Work", path: "/work/" },
+];
+const schema = [
+  buildCollectionPage({
+    name: "Work",
+    description: meta.description,
+    slug: "/work/",
+  }),
+  buildBreadcrumbs(crumbs),
+];
+---
+<Page meta={meta} schema={schema}>
+  <PageHero
+    eyebrow="Work"
+    h1="What we've shipped."
+    lede="Case studies, anonymized but specific. We name numbers we can back."
+  />
+  <section class="container-page py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
+      {all.map((e) => (
+        <a
+          href={`/work/${e.slug}/`}
+          class="group flex flex-col p-8 md:p-10 rounded-sm border border-rule-strong bg-bg-deep hover:border-accent/40 lift-on-hover hover:-translate-y-1"
+        >
+          <span class="mono-label !text-accent">Case study</span>
+          <h3
+            class="font-sans font-medium text-ink mt-3 mb-3"
+            style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
+          >
+            {e.data.clientLabel}
+          </h3>
+          <p class="mono-label mb-6">{e.data.location}</p>
+          <p class="text-ink-soft leading-relaxed mb-6" style="font-size: var(--text-body);">
+            {e.data.description}
+          </p>
+          <span class="link-mono inline-flex items-center gap-1.5 group-hover:text-accent mt-auto">
+            <span>Read the case study</span>
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Page>

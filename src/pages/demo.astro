@@ -1,10 +1,12 @@
 ---
 import Base from "../layouts/Base.astro";
+import { buildPageMeta } from "../lib/seo";
 
 const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
+const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI receptionist.", path: "/demo/" });
 ---
 
-<Base title="Demo — Clear Slope Digital" description="Live demo of the AI receptionist.">
+<Base meta={meta}>
   <main
     class="min-h-dvh flex items-center justify-center px-4 py-16"
     style="background: var(--color-bg-deep);"

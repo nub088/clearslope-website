@@ -1,0 +1,80 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/PageHero.astro";
+import { buildPageMeta } from "../lib/seo";
+import { buildPerson, buildBreadcrumbs } from "../lib/schema";
+import { AUTHOR } from "../data/author";
+import { ORG_ADDRESS } from "../data/site";
+
+const meta = buildPageMeta({
+  title: "About Mo Habib",
+  description:
+    "Mo Habib is the founder of Clear Slope Digital. Mechanical engineer turned founder, building AI voice agents, workflows, and local SEO for service businesses across Canada and the US.",
+  path: "/about/",
+});
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about/" },
+];
+const schema = [buildPerson(), buildBreadcrumbs(crumbs)];
+---
+<Page meta={meta} schema={schema}>
+  <PageHero
+    eyebrow="About"
+    h1="About Mo Habib."
+    lede={AUTHOR.shortBio}
+  />
+  <article class="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 py-12 md:py-16">
+    <aside class="lg:col-span-3">
+      <img
+        src={AUTHOR.imagePath400}
+        width="200"
+        height="200"
+        alt={AUTHOR.name}
+        class="rounded-sm w-full max-w-[200px]"
+        loading="eager"
+        decoding="async"
+      />
+    </aside>
+    <div class="lg:col-span-7 max-w-[var(--container-prose)] prose-content">
+      <h2>Background</h2>
+      <p>
+        I'm a mechanical engineer who got tired of watching service businesses
+        get sold cookie-cutter SEO and "AI" that was a chatbot in a trenchcoat.
+        Engineering trains you to think in systems — inputs, transforms,
+        outputs, failure modes. That's the same lens I bring to a small
+        business: <em>where is revenue leaking, and what system would stop the leak?</em>
+      </p>
+      <p>
+        I'm not going to pretend my degree taught me how to build voice agents
+        or rank a pest control company. It didn't. It taught me how to take
+        something apart, see how the parts fit, and put it back together so it
+        works. The rest I learned by shipping.
+      </p>
+
+      <h2>What I work on</h2>
+      <ul>
+        <li><strong>AI voice agents</strong> that capture missed calls and qualify leads.</li>
+        <li><strong>Agentic workflows</strong> that run review requests, follow-ups, scheduling, and reporting.</li>
+        <li><strong>Local SEO</strong> built on technical fundamentals, not citation farms.</li>
+      </ul>
+
+      <h2>How I work</h2>
+      <p>
+        Founder-direct. Fixed fee. Small client roster. I anonymize clients in
+        writing — your story might end up as "a Metro Vancouver pest control
+        operator," but the numbers I cite about you are numbers I can defend.
+      </p>
+
+      <h2>Where to find me</h2>
+      <p>
+        Based in {ORG_ADDRESS.addressLocality}, {ORG_ADDRESS.addressRegion}.
+        Working with service businesses across Canada and the US.
+      </p>
+      <ul>
+        <li><a href={AUTHOR.sameAs[0]} target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/book/">Book a discovery call</a></li>
+      </ul>
+    </div>
+  </article>
+</Page>

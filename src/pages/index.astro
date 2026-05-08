@@ -1,22 +1,149 @@
 ---
-import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
+import Page from "../layouts/Page.astro";
 import Hero from "../components/Hero.astro";
-import Services from "../components/Services.astro";
-import Process from "../components/Process.astro";
-import Work from "../components/Work.astro";
-import FinalCTA from "../components/FinalCTA.astro";
-import Footer from "../components/Footer.astro";
----
+import ServiceCard from "../components/ServiceCard.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
+import { buildPageMeta } from "../lib/seo";
+import {
+  buildOrganization,
+  buildWebSite,
+  buildBreadcrumbs,
+} from "../lib/schema";
+import { readingTimeMinutes } from "../lib/reading-time";
+import { SITE_TAGLINE } from "../data/site";
 
-<Base>
-  <Nav />
-  <main>
-    <Hero />
-    <Services />
-    <Process />
-    <Work />
-    <FinalCTA />
-  </main>
-  <Footer />
-</Base>
+const services = (await getCollection("services")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const allNotes = (await getCollection("notes")).filter((e) => !e.data.draft);
+allNotes.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+const featured = allNotes.slice(0, 3);
+const work = await getCollection("work");
+
+const meta = buildPageMeta({
+  title: "Clear Slope Digital",
+  description: SITE_TAGLINE,
+  path: "/",
+});
+const crumbs = [{ name: "Home", path: "/" }];
+const schema = [
+  buildOrganization(),
+  buildWebSite(),
+  buildBreadcrumbs(crumbs),
+];
+const numbers = ["01", "02", "03"];
+---
+<Page meta={meta} schema={schema}>
+  <Hero />
+
+  <section id="services" class="py-24 md:py-32 border-t border-rule">
+    <div class="container-page">
+      <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div class="flex items-center gap-3">
+          <span class="mono-label">Services</span>
+          <span class="h-px w-12 bg-rule"></span>
+        </div>
+        <h2
+          class="font-sans font-medium text-ink max-w-[20ch]"
+          style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+        >
+          Three services. One operator who actually ships.
+        </h2>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        {services.map((s, i) => (
+          <ServiceCard
+            href={`/services/${s.data.slug}/`}
+            num={numbers[i]}
+            title={s.data.h1}
+            body={s.data.description}
+            outcomes={s.data.faq.slice(0, 3).map((f) => f.q)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {work.length > 0 && (
+    <section class="py-24 md:py-32 border-t border-rule">
+      <div class="container-page">
+        <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div class="flex items-center gap-3">
+            <span class="mono-label">Work</span>
+            <span class="h-px w-12 bg-rule"></span>
+          </div>
+          <h2
+            class="font-sans font-medium text-ink max-w-[20ch]"
+            style="font-size: var(--text-h2); line-height: var(--text-h2--line-height);"
+          >
+            What we've shipped.
+          </h2>
+        </header>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
+          {work.map((c) => (
+            <a
+              href={`/work/${c.slug}/`}
+              class="group flex flex-col p-8 md:p-10 rounded-sm border border-rule-strong bg-bg-deep hover:border-accent/40 lift-on-hover hover:-translate-y-1"
+            >
+              <span class="mono-label !text-accent">Case study</span>
+              <h3
+                class="font-sans font-medium text-ink mt-3 mb-3"
+                style="font-size: var(--text-h3);"
+              >
+                {c.data.clientLabel}
+              </h3>
+              <p class="mono-label mb-6">{c.data.location}</p>
+              <p class="text-ink-soft leading-relaxed mb-6" style="font-size: var(--text-body);">
+                {c.data.description}
+              </p>
+              <span class="link-mono inline-flex items-center gap-1.5 group-hover:text-accent mt-auto">
+                <span>Read the case study</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {featured.length > 0 && (
+    <section class="py-24 md:py-32 border-t border-rule">
+      <div class="container-page">
+        <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div class="flex items-center gap-3">
+            <span class="mono-label">Notes</span>
+            <span class="h-px w-12 bg-rule"></span>
+          </div>
+          <h2
+            class="font-sans font-medium text-ink max-w-[24ch]"
+            style="font-size: var(--text-h2); line-height: var(--text-h2--line-height);"
+          >
+            Field notes from the workshop.
+          </h2>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {featured.map((e) => (
+            <PostCard
+              href={`/notes/${e.id}/`}
+              title={e.data.title}
+              description={e.data.description}
+              publishDate={e.data.publishDate}
+              readingMinutes={readingTimeMinutes(e.body)}
+              cluster={e.data.cluster}
+            />
+          ))}
+        </div>
+        <div class="mt-12">
+          <a href="/notes/" class="link-mono inline-flex items-center gap-1.5 hover:text-accent">
+            <span>All notes</span>
+            <span class="text-accent">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+</Page>
