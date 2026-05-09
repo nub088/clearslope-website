@@ -68,15 +68,13 @@ const lines = Array.from({ length: lineCount }, (_, i) => {
   <rect width={W} height={H} fill="url(#bg-grad)" />
   <rect width={W} height={H} fill="url(#bg-glow)" />
 
-  <g fill="none" stroke-linecap="round">
-    {lines.map((l, i) => (
+  <g class="topo-group" fill="none" stroke-linecap="round">
+    {lines.map((l) => (
       <path
-        class="topo-line"
         d={l.d}
         stroke={l.stroke}
         stroke-width={l.strokeWidth}
         opacity={l.opacity}
-        style={`animation-delay: ${300 + i * 55}ms;`}
       />
     ))}
   </g>

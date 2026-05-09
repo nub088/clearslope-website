@@ -50,7 +50,6 @@
     font-feature-settings: "ss01", "ss02", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
   body {
@@ -255,11 +254,9 @@
   animation: fade-in 2.2s 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
 
-/* Topo SVG paths: each line draws in. Length is generous so any path works. */
-.topo-line {
-  stroke-dasharray: 3200;
-  stroke-dashoffset: 3200;
-  animation: draw-stroke 3.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+/* Topo SVG: fade the whole group in once — single GPU-composited op */
+.topo-group {
+  animation: fade-in 2.4s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 /* Hand-drawn underline under "systems" in the hero */
@@ -353,9 +350,12 @@
     opacity: 1 !important;
     transform: none !important;
   }
-  .topo-line,
+  .topo-group,
+  .draw-underline {
+    animation: none !important;
+    opacity: 1 !important;
+  }
   .draw-underline {
     stroke-dashoffset: 0 !important;
-    animation: none !important;
   }
 }

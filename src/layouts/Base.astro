@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 import fontsUrl from "../styles/fonts.css?url";
+import sansNormalUrl from "@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url";
+import monoNormal400Url from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
+import monoNormal500Url from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2?url";
 import PageMeta from "../components/seo/PageMeta.astro";
 import JsonLd from "../components/seo/JsonLd.astro";
 import type { PageMeta as PageMetaT } from "../lib/seo";
@@ -22,6 +25,9 @@ const { meta, schema } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="Clear Slope Digital: Notes" href="/notes/rss.xml" />
+    <link rel="preload" as="font" type="font/woff2" href={sansNormalUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={monoNormal400Url} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={monoNormal500Url} crossorigin />
     <link rel="preload" href={fontsUrl} as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href={fontsUrl} /></noscript>
 
