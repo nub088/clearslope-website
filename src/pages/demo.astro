@@ -80,7 +80,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
             class="font-sans font-medium text-ink"
             style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
           >
-            Talk to Sarah — AI assistant
+            Talk to Sarah, AI assistant
           </h1>
         </div>
         <button data-logout class="mono-label underline hover:text-ink transition-colors">
@@ -133,7 +133,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
       </div>
 
       <p class="mono-label mt-3" style="color: color-mix(in oklab, var(--color-ink-soft) 70%, transparent);">
-        Text demo — the real agent handles inbound calls by phone.
+        Text demo. The real agent handles inbound calls by phone.
       </p>
     </div>
   </main>
@@ -373,7 +373,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
           const errEl = document.createElement("p");
           errEl.className = "mono-label";
           errEl.style.color = "color-mix(in oklab,var(--color-ink-soft) 70%,transparent)";
-          errEl.textContent = "Connection error — try again in a moment.";
+          errEl.textContent = "Connection error. Try again in a moment.";
           messagesEl.appendChild(errEl);
           scrollBottom();
         }
@@ -397,7 +397,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
       });
 
       // Kick off greeting
-      messages.push({ role: "user", content: "[the phone rings — caller has just connected]" });
+      messages.push({ role: "user", content: "[the phone rings; caller has just connected]" });
       send();
     }
   })();

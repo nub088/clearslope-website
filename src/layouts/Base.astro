@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import fontsUrl from "../styles/fonts.css?url";
 import PageMeta from "../components/seo/PageMeta.astro";
 import JsonLd from "../components/seo/JsonLd.astro";
 import type { PageMeta as PageMetaT } from "../lib/seo";
@@ -20,7 +21,9 @@ const { meta, schema } = Astro.props;
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Clear Slope Digital — Notes" href="/notes/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Clear Slope Digital: Notes" href="/notes/rss.xml" />
+    <link rel="preload" href={fontsUrl} as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href={fontsUrl} /></noscript>
 
     <PageMeta meta={meta} />
     {schema ? <JsonLd data={schema} /> : null}

@@ -10,7 +10,7 @@ describe("buildPageMeta", () => {
       path: "/services/ai-voice-agent/",
     });
     expect(meta.title).toBe(
-      "AI Voice Agents for Service Businesses — Clear Slope Digital",
+      "AI Voice Agents for Service Businesses | Clear Slope Digital",
     );
     expect(meta.canonical).toBe(
       "https://clearslopedigital.com/services/ai-voice-agent/",

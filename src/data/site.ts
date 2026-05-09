@@ -21,7 +21,7 @@ export const ORG_SAME_AS = [
   "https://www.google.com/search?kgmid=/g/11yz_06j75&hl=en-CA&q=Clear+Slope+Digital&shem=rimspwouoe&shndl=30&kgs=f6977c2107951c8b",
 ] as const;
 
-export const CAL_URL = "cal.com/mo-dmzy1i";
+export const CAL_URL = "mo-dmzy1i/30min";
 
 export const WEB3FORMS_ACCESS_KEY = "71da2716-4185-43b8-978d-a1978c193628";
 

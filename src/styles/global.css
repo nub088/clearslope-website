@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@import "@fontsource-variable/ibm-plex-sans";
-@import "@fontsource/ibm-plex-mono/400.css";
-@import "@fontsource/ibm-plex-mono/500.css";
-
 @theme {
   --color-bg: #ffffff;
   --color-bg-deep: #f2f9fa;
@@ -131,6 +127,58 @@
   letter-spacing: var(--text-mono--letter-spacing);
   color: var(--color-ink);
   transition: color 180ms ease;
+}
+
+/* ---------- Prose content ---------- */
+
+@utility prose-content {
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    letter-spacing: var(--text-h2--letter-spacing);
+    color: var(--color-ink);
+  }
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: var(--text-h3--letter-spacing);
+    color: var(--color-ink);
+  }
+  p {
+    color: var(--color-ink-soft);
+    line-height: 1.65;
+    font-size: var(--text-body);
+    margin-bottom: 1rem;
+  }
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-ink-soft);
+  }
+  li {
+    margin-bottom: 0.35rem;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+  strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
 }
 
 /* ---------- Animations ---------- */

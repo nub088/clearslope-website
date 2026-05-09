@@ -9,7 +9,7 @@ import {
 export async function GET(context: { site?: URL }) {
   const all = (await getCollection("notes")).filter((e) => !e.data.draft);
   return rss({
-    title: `${SITE_NAME} — Notes`,
+    title: `${SITE_NAME}: Notes`,
     description: SITE_DESCRIPTION,
     site: context.site ?? SITE_URL,
     items: all.map((e) => ({

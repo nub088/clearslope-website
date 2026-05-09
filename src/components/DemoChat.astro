@@ -17,7 +17,7 @@ const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
         class="font-sans font-medium text-ink"
         style="font-size: var(--text-h2); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
       >
-        Talk to Sarah — our AI receptionist.
+        Talk to Sarah, our AI receptionist.
       </h2>
       <p
         class="mt-4 text-ink-soft"
@@ -77,7 +77,7 @@ const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
       </div>
 
       <p class="mono-label mt-3" style="color: color-mix(in oklab, var(--color-ink-soft) 70%, transparent);">
-        Text demo — the real agent handles inbound calls by phone.
+        Text demo. The real agent handles inbound calls by phone.
       </p>
     </div>
   </div>
@@ -275,7 +275,7 @@ const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
         const errEl = document.createElement("p");
         errEl.className = "mono-label";
         errEl.style.color = "color-mix(in oklab, var(--color-ink-soft) 70%, transparent)";
-        errEl.textContent = "Connection error — try again in a moment.";
+        errEl.textContent = "Connection error. Try again in a moment.";
         messagesEl.appendChild(errEl);
         scrollBottom();
       }
@@ -318,7 +318,7 @@ const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
           observer.disconnect();
           messages.push({
             role: "user",
-            content: "[the phone rings — caller has just connected]",
+            content: "[the phone rings; caller has just connected]",
           });
           send(); // no userText → skips user bubble, just gets Sarah's greeting
         }

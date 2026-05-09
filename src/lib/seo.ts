@@ -20,7 +20,7 @@ export type PageMeta = {
 };
 
 export function buildPageMeta(input: PageMetaInput): PageMeta {
-  const fullTitle = `${input.title} — ${SITE_NAME}`;
+  const fullTitle = `${input.title} | ${SITE_NAME}`;
   const ogType = input.ogType ?? "website";
   const ogImage = input.ogImage ?? DEFAULT_OG;
   const canonical = new URL(input.path, SITE_URL).toString();
