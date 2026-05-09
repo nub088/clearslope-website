@@ -1,9 +1,8 @@
-```markdown
 ---
 title: "After the Call Ends, the Work Starts"
 description: "Booking a job is step one. The coordination between call and completion -- dispatch, reminders, reviews -- is where most service businesses bleed time and revenue."
 publishDate: 2026-05-09
-cluster: agentic-workflows
+cluster: operator-pov
 ---
 
 A plumber I work with had a simple problem: jobs were getting booked and not showing up in the dispatch board. The voice agent answered calls, captured the details, sent a confirmation text. But the technician never saw the job until the customer called back to ask where they were.
@@ -68,4 +67,3 @@ For an operator running $1M or more annually, this kind of automation pays back 
 Before building any workflow, trace one job from call to invoice and write down every manual step. Count the steps that depend on a specific person being available, on memory, on a sticky note by the phone. That number tells you where the leverage is.
 
 Most operators are surprised by how many steps there are and how few are actually necessary if the right system handles them.
-```

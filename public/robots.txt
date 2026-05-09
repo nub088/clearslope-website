@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
+Disallow: /demo/
 
 Sitemap: https://clearslopedigital.com/sitemap-index.xml
