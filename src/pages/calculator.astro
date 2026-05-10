@@ -134,4 +134,62 @@ const schema = [buildBreadcrumbs(crumbs)];
       </div>
     </div>
   </main>
+
+  <script>
+    function formatCurrency(value) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(value);
+    }
+
+    function calculateMetrics() {
+      const monthlyVolume = parseFloat(document.getElementById('monthlyVolume').value) || 0;
+      const bookingRate = parseFloat(document.getElementById('bookingRate').value) || 39;
+      const quoteRate = parseFloat(document.getElementById('quoteRate').value) || 20;
+      const outOfScopeRate = parseFloat(document.getElementById('outOfScopeRate').value) || 28;
+      const avgJobValue = parseFloat(document.getElementById('avgJobValue').value) || 250.98;
+
+      // Calculate metrics
+      const bookings = Math.round((monthlyVolume * bookingRate) / 100);
+      const quotes = Math.round((monthlyVolume * quoteRate) / 100);
+      const outOfScope = Math.round((monthlyVolume * outOfScopeRate) / 100);
+      const lostRate = 100 - bookingRate - quoteRate - outOfScopeRate;
+      const lostCalls = Math.round((monthlyVolume * lostRate) / 100);
+
+      // Revenue calculations
+      const monthlyRevenueCapture = bookings * avgJobValue;
+      const monthlyRevenueLost = lostCalls * avgJobValue;
+      const annualRevenueLost = monthlyRevenueLost * 12;
+
+      // Update displays
+      document.getElementById('bookingsDisplay').textContent = bookings.toLocaleString();
+      document.getElementById('quotesDisplay').textContent = quotes.toLocaleString();
+      document.getElementById('outOfScopeDisplay').textContent = outOfScope.toLocaleString();
+      document.getElementById('monthlyRevenueDisplay').textContent = formatCurrency(monthlyRevenueCapture);
+      document.getElementById('annualLossDisplay').textContent = formatCurrency(annualRevenueLost);
+    }
+
+    // Attach event listeners
+    const inputs = [
+      'monthlyVolume',
+      'bookingRate',
+      'quoteRate',
+      'outOfScopeRate',
+      'avgJobValue'
+    ];
+
+    inputs.forEach(id => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener('input', calculateMetrics);
+        input.addEventListener('change', calculateMetrics);
+      }
+    });
+
+    // Initial calculation on page load
+    calculateMetrics();
+  </script>
 </Page>
