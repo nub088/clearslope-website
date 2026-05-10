@@ -192,4 +192,28 @@ const schema = [buildBreadcrumbs(crumbs)];
     // Initial calculation on page load
     calculateMetrics();
   </script>
+
+  <style>
+    details summary {
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: " +";
+      margin-left: 0.5rem;
+    }
+
+    details[open] summary::after {
+      content: " −";
+    }
+
+    details summary:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+  </style>
 </Page>
