@@ -1,0 +1,24 @@
+---
+import Page from "../layouts/Page.astro";
+import { buildPageMeta } from "../lib/seo";
+import { buildBreadcrumbs } from "../lib/schema";
+
+const meta = buildPageMeta({
+  title: "Revenue Calculator | Pest Control",
+  description: "Calculate how much revenue you're losing to missed calls. See the real numbers from 1,327 pest control calls.",
+  path: "/calculator/",
+});
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Calculator", path: "/calculator/" },
+];
+
+const schema = [buildBreadcrumbs(crumbs)];
+---
+
+<Page meta={meta} schema={schema}>
+  <main>
+    {/* Content will go here */}
+  </main>
+</Page>
