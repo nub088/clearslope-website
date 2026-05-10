@@ -19,6 +19,119 @@ const schema = [buildBreadcrumbs(crumbs)];
 
 <Page meta={meta} schema={schema}>
   <main>
-    {/* Content will go here */}
+    <div class="container-page py-12 md:py-20">
+      <header class="mb-12">
+        <h1 class="font-sans font-medium text-ink" style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing); margin-bottom: 1rem;">
+          How much revenue are you losing?
+        </h1>
+        <p class="text-ink-soft max-w-[var(--container-prose)]" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">
+          Enter your monthly call volume and see the real numbers. Based on analysis of 1,327 pest control calls.
+        </p>
+      </header>
+
+      <!-- Two-column calculator section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <!-- Left column: inputs -->
+        <div class="space-y-6">
+          <div>
+            <label for="monthlyVolume" class="mono-label block mb-3">Monthly Call Volume</label>
+            <input
+              type="number"
+              id="monthlyVolume"
+              value="150"
+              min="1"
+              max="10000"
+              class="w-full px-4 py-3 text-2xl font-sans border border-rule rounded-sm focus:outline-none focus:border-accent"
+            />
+          </div>
+
+          <!-- Collapsible assumptions section -->
+          <details class="border-t border-rule pt-6">
+            <summary class="mono-label cursor-pointer select-none hover:text-accent transition-colors">
+              Adjust Assumptions
+            </summary>
+            <div class="mt-6 space-y-6">
+              <div>
+                <label for="bookingRate" class="mono-label block mb-2">Booking Rate (%)</label>
+                <input
+                  type="number"
+                  id="bookingRate"
+                  value="39"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="w-full px-3 py-2 border border-rule rounded-sm focus:outline-none focus:border-accent"
+                />
+              </div>
+              <div>
+                <label for="quoteRate" class="mono-label block mb-2">Quote Not Converted (%)</label>
+                <input
+                  type="number"
+                  id="quoteRate"
+                  value="20"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="w-full px-3 py-2 border border-rule rounded-sm focus:outline-none focus:border-accent"
+                />
+              </div>
+              <div>
+                <label for="outOfScopeRate" class="mono-label block mb-2">Out of Scope (%)</label>
+                <input
+                  type="number"
+                  id="outOfScopeRate"
+                  value="28"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="w-full px-3 py-2 border border-rule rounded-sm focus:outline-none focus:border-accent"
+                />
+              </div>
+              <div>
+                <label for="avgJobValue" class="mono-label block mb-2">Average Job Value ($)</label>
+                <input
+                  type="number"
+                  id="avgJobValue"
+                  value="250.98"
+                  min="0"
+                  step="0.01"
+                  class="w-full px-3 py-2 border border-rule rounded-sm focus:outline-none focus:border-accent"
+                />
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Right column: results -->
+        <div class="space-y-6">
+          <div class="p-6 border border-rule rounded-sm bg-bg-soft">
+            <p class="mono-label mb-2">Estimated Monthly Bookings</p>
+            <p class="text-4xl font-sans font-medium text-ink" id="bookingsDisplay">57</p>
+          </div>
+          <div class="p-6 border border-rule rounded-sm bg-bg-soft">
+            <p class="mono-label mb-2">Estimated Quotes Not Converted</p>
+            <p class="text-4xl font-sans font-medium text-ink" id="quotesDisplay">30</p>
+          </div>
+          <div class="p-6 border border-rule rounded-sm bg-bg-soft">
+            <p class="mono-label mb-2">Estimated Out of Scope Calls</p>
+            <p class="text-4xl font-sans font-medium text-ink" id="outOfScopeDisplay">42</p>
+          </div>
+          <div class="p-6 border border-rule rounded-sm bg-bg-soft">
+            <p class="mono-label mb-2">Estimated Monthly Revenue Captured</p>
+            <p class="text-4xl font-sans font-medium text-accent" id="monthlyRevenueDisplay">$14,306</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero banner: lost revenue -->
+      <div class="bg-bg-deep border-t border-b border-rule py-20 px-6 text-center -mx-6 mb-0">
+        <p class="mono-label mb-6">Estimated Annual Revenue Lost</p>
+        <p class="text-7xl font-sans font-medium text-ink mb-8" id="annualLossDisplay">$51,768</p>
+        <a href="/book/" class="inline-block px-6 py-3 bg-accent text-bg font-sans font-medium rounded-full hover:bg-accent-hover transition-colors">
+          See how to recover this revenue
+        </a>
+        <p class="mono-label mt-12 text-xs">Based on analysis of 1,327 real pest control calls</p>
+      </div>
+    </div>
   </main>
 </Page>
