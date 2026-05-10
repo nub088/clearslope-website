@@ -55,7 +55,7 @@ If you're reading this and wondering whether you'd qualify: the filter is less s
 
 **What size of service business does Clearslope work with?**
 
-Operators with enough call volume to make measurement meaningful — typically 30+ inbound calls per month — and ticket sizes that make AI voice agent or SEO economics work. Below those thresholds, the per-engagement ROI is thin for both sides. The filter isn't about company size; it's about whether there's enough signal to build something specific and measurable.
+Operators with enough call volume to make measurement meaningful  - typically 30+ inbound calls per month  - and ticket sizes that make AI voice agent or SEO economics work. Below those thresholds, the per-engagement ROI is thin for both sides. The filter isn't about company size; it's about whether there's enough signal to build something specific and measurable.
 
 **How long does Clearslope's client evaluation process take?**
 

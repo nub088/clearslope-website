@@ -10,7 +10,7 @@ Pest control runs on inbound calls. Customers don't fill out web forms when they
 
 Most operators know this in theory. Few have run the numbers.
 
-## How many pest control calls go to voicemail — and when
+## How many pest control calls go to voicemail  - and when
 
 We analyzed 12 months of call records for a Metro Vancouver pest control operator: 1,346 calls, January through December 2025. The goal was to understand what was coming in, when it was coming in, and whether the existing intake process was handling it cleanly.
 
@@ -74,18 +74,18 @@ From there, the question is which of the three options fits your margin structur
 
 **How many pest control calls typically go to voicemail?**
 
-Based on 1,346 calls analyzed for a Metro Vancouver pest control operator, voicemail rates of 15–20% of qualifying calls are common — higher during peak rodent season (November–February) when call volume is highest and staffing is thinnest. A business receiving 840 qualifying calls per year might lose 126–168 to voicemail or degraded dispatcher attention.
+Based on 1,346 calls analyzed for a Metro Vancouver pest control operator, voicemail rates of 15–20% of qualifying calls are common  - higher during peak rodent season (November–February) when call volume is highest and staffing is thinnest. A business receiving 840 qualifying calls per year might lose 126–168 to voicemail or degraded dispatcher attention.
 
 **How much does a missed pest control call cost?**
 
-Using a $450 average residential rodent job and a 40-percentage-point conversion gap (70% for live-answered calls vs. 30% for voicemail callbacks), each missed call represents roughly $180 in lost revenue. Across 50 lost jobs per year, that's approximately $22,500 annually — not because the business couldn't do the work, but because the call wasn't answered in time.
+Using a $450 average residential rodent job and a 40-percentage-point conversion gap (70% for live-answered calls vs. 30% for voicemail callbacks), each missed call represents roughly $180 in lost revenue. Across 50 lost jobs per year, that's approximately $22,500 annually  - not because the business couldn't do the work, but because the call wasn't answered in time.
 
 **What is a typical callback conversion rate for pest control?**
 
-Live-answered calls convert at 55–70%. Voicemail callbacks convert at 15–30%. The gap widens the longer the callback takes — callers who wait more than two hours will often book with the next available operator they reach.
+Live-answered calls convert at 55–70%. Voicemail callbacks convert at 15–30%. The gap widens the longer the callback takes  - callers who wait more than two hours will often book with the next available operator they reach.
 
 **What is the cheapest way to reduce missed pest control calls?**
 
-An answering service ($50–200/month) improves your answer rate but not your conversion rate — callers still get "someone will call you back." An AI voice agent costs more but solves both: it answers and books qualifying calls around the clock. Below 500 qualifying calls per year, an answering service may offer better ROI. Above that threshold, the AI economics typically work clearly.
+An answering service ($50–200/month) improves your answer rate but not your conversion rate  - callers still get "someone will call you back." An AI voice agent costs more but solves both: it answers and books qualifying calls around the clock. Below 500 qualifying calls per year, an answering service may offer better ROI. Above that threshold, the AI economics typically work clearly.
 
 See [the case study](/work/pest-control-vancouver/) for a detailed look at what one Metro Vancouver operator found when they ran this analysis on 1,346 calls. See [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/) for a more detailed unit-economics breakdown.

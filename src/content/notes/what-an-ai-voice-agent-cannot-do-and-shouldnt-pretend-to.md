@@ -19,7 +19,7 @@ For a pest control operator or HVAC company, most calls follow a predictable pat
 
 The things agents handle reliably: booking qualifying calls, answering FAQ questions (service area, pricing ballpark, treatment duration, what to expect), capturing contact information, collecting job details, and routing based on job type. These calls, routine, structured, and answerable from a knowledge base, make up the majority of inbound call volume for most service businesses.
 
-## What AI voice agents cannot handle — and why it matters
+## What AI voice agents cannot handle  - and why it matters
 
 **Emotional escalation.** A customer calling about an active rat infestation in their child's bedroom is not in FAQ mode. A caller who found bed bugs and hasn't slept in three days needs a human response, not a qualification script. Voice agents can detect urgency signals and route to a human when they appear, but they can't provide the emotional attunement that a difficult call requires. Trying to handle these calls with AI is the right way to lose a customer you would have kept.
 
@@ -58,18 +58,18 @@ The counterintuitive finding: customers who know they're talking to an AI and ha
 
 **What types of calls should not go to an AI voice agent?**
 
-Emotional escalation calls (active infestation with children in the home, severe distress), complex commercial or multi-unit inquiries, complaints or service issues from existing customers, and jobs requiring on-site assessment before quoting. These should route to a human immediately — not after a qualification flow, immediately.
+Emotional escalation calls (active infestation with children in the home, severe distress), complex commercial or multi-unit inquiries, complaints or service issues from existing customers, and jobs requiring on-site assessment before quoting. These should route to a human immediately  - not after a qualification flow, immediately.
 
 **Do AI voice agents have to say they're AI?**
 
-Legal requirements vary by jurisdiction. From a business standpoint, the agent should always disclose what it is — clearly, early in the call. Callers who find out after the fact that they were talking to an AI without being told lose trust in the business. The counterintuitive result: callers who know they're talking to AI and have their problem resolved efficiently are generally satisfied. The friction is the unresolved problem, not the AI.
+Legal requirements vary by jurisdiction. From a business standpoint, the agent should always disclose what it is  - clearly, early in the call. Callers who find out after the fact that they were talking to an AI without being told lose trust in the business. The counterintuitive result: callers who know they're talking to AI and have their problem resolved efficiently are generally satisfied. The friction is the unresolved problem, not the AI.
 
 **Can an AI voice agent handle pest control booking calls?**
 
-Yes, for the majority of inbound pest control calls — routine bookings, FAQ questions about service area, pricing, and treatment duration, appointment scheduling, and job detail capture. It should route to a human for emergency situations, commercial bids, existing customer complaints, and calls that require technical diagnosis before quoting.
+Yes, for the majority of inbound pest control calls  - routine bookings, FAQ questions about service area, pricing, and treatment duration, appointment scheduling, and job detail capture. It should route to a human for emergency situations, commercial bids, existing customer complaints, and calls that require technical diagnosis before quoting.
 
 **How accurate are AI voice agents at identifying the correct pest from a caller's description?**
 
-Call data shows an 8% mismatch rate between customer descriptions and what dispatchers actually diagnosed — callers describing "mice" who had rats, "ants" that were carpenter ants requiring structural treatment. A well-built voice agent can reduce this with structured qualification questions, but for jobs where misdiagnosis significantly affects the treatment, agent-plus-human review is the safer design.
+Call data shows an 8% mismatch rate between customer descriptions and what dispatchers actually diagnosed  - callers describing "mice" who had rats, "ants" that were carpenter ants requiring structural treatment. A well-built voice agent can reduce this with structured qualification questions, but for jobs where misdiagnosis significantly affects the treatment, agent-plus-human review is the safer design.
 
 For more on what a voice agent build includes and the cases where it's the right tool, see [AI Voice Agents for Service Businesses](/services/ai-voice-agent/). For the unit-economics breakdown of when one pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/).

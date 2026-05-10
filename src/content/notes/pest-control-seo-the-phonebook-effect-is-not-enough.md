@@ -1,6 +1,6 @@
 ---
 title: "Pest Control SEO: The Phonebook Effect Is Not Enough"
-description: "Local SEO for pest control: how to rank beyond Google Maps for high-intent queries like 'mice in walls' and 'wasp nest removal' — with a 10-point checklist."
+description: "Local SEO for pest control: how to rank beyond Google Maps for high-intent queries like 'mice in walls' and 'wasp nest removal'  - with a 10-point checklist."
 publishDate: 2026-04-07
 cluster: pest-control
 ---
@@ -77,7 +77,7 @@ The answers to these questions determine the scope and the realistic timeline. W
 
 **How long does pest control SEO take to show results?**
 
-In mid-size markets, technical fixes (speed, schema, crawlability) produce ranking signals within weeks. Content-driven rankings for specific pest queries take 3–6 months to materialize. In highly competitive urban markets, the timeline is longer. The operators who capture seasonal traffic built their content pages off-season — a page that doesn't exist by March won't rank for carpenter ant queries in April.
+In mid-size markets, technical fixes (speed, schema, crawlability) produce ranking signals within weeks. Content-driven rankings for specific pest queries take 3–6 months to materialize. In highly competitive urban markets, the timeline is longer. The operators who capture seasonal traffic built their content pages off-season  - a page that doesn't exist by March won't rank for carpenter ant queries in April.
 
 **What are the most important local SEO factors for pest control?**
 
@@ -85,7 +85,7 @@ In priority order: Google Business Profile completeness and category accuracy, r
 
 **Does a pest control business need a separate page for each pest?**
 
-Yes. One generic "pest control services" page won't rank for queries like "carpenter ant infestation Vancouver" or "rat exclusion residential North Vancouver." Each core pest type — rodents, ants, wasps, bed bugs — needs its own page written for the specific queries customers use when they have that problem right now.
+Yes. One generic "pest control services" page won't rank for queries like "carpenter ant infestation Vancouver" or "rat exclusion residential North Vancouver." Each core pest type  - rodents, ants, wasps, bed bugs  - needs its own page written for the specific queries customers use when they have that problem right now.
 
 **What keywords should pest control operators target for local SEO?**
 

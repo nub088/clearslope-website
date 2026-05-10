@@ -66,18 +66,18 @@ The comparison isn't "voice agent vs. nothing." It's "voice agent vs. the curren
 
 **How much does an AI voice agent cost per month?**
 
-Custom AI voice agents for service businesses typically run $300–1,200/month depending on call volume, integration complexity, and what the agent needs to handle. The relevant comparison isn't the monthly cost in isolation — it's the monthly cost against the recoverable revenue from calls your current setup is losing.
+Custom AI voice agents for service businesses typically run $300–1,200/month depending on call volume, integration complexity, and what the agent needs to handle. The relevant comparison isn't the monthly cost in isolation  - it's the monthly cost against the recoverable revenue from calls your current setup is losing.
 
 **Does an AI voice agent pay for itself?**
 
-For service businesses with 30+ inbound calls per month, an average ticket above $200, and a voicemail rate above 10%, the economics typically work. Using the formula above: 20 voicemail calls per month × $450 ticket × 0.35 conversion gap = $3,150/month in recoverable revenue. At 60% recovery efficiency, that's $1,890/month — more than covering an $800/month agent cost.
+For service businesses with 30+ inbound calls per month, an average ticket above $200, and a voicemail rate above 10%, the economics typically work. Using the formula above: 20 voicemail calls per month × $450 ticket × 0.35 conversion gap = $3,150/month in recoverable revenue. At 60% recovery efficiency, that's $1,890/month  - more than covering an $800/month agent cost.
 
 **Is an AI voice agent better than a receptionist?**
 
-A receptionist ($1,500–3,500/month) provides better handling for complex and emotionally demanding calls, but only covers business hours and creates a personnel dependency. An AI voice agent costs less, operates 24/7, and handles routine booking calls consistently — but should route complex calls to a human. The right answer depends on your call mix and where your coverage gaps actually are.
+A receptionist ($1,500–3,500/month) provides better handling for complex and emotionally demanding calls, but only covers business hours and creates a personnel dependency. An AI voice agent costs less, operates 24/7, and handles routine booking calls consistently  - but should route complex calls to a human. The right answer depends on your call mix and where your coverage gaps actually are.
 
 **When is an AI voice agent not worth it?**
 
-Below 20–30 calls per month, when average tickets are under $150, or when your front desk already has a genuinely low voicemail rate. A $100/month answering service is the better tool at low volumes. The math needs room to work — small call volumes leave too little margin for error.
+Below 20–30 calls per month, when average tickets are under $150, or when your front desk already has a genuinely low voicemail rate. A $100/month answering service is the better tool at low volumes. The math needs room to work  - small call volumes leave too little margin for error.
 
 For a detailed look at how this played out in a real engagement, see [the case study](/work/pest-control-vancouver/). For the service description and what a build includes, see [AI Voice Agents for Service Businesses](/services/ai-voice-agent/).

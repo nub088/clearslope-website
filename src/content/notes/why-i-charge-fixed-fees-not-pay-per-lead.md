@@ -57,15 +57,15 @@ The point isn't that pay-per-lead is always bad. It's that it's often the defaul
 
 **Is pay-per-lead SEO worth it for pest control?**
 
-Pay-per-lead delivers immediate volume but builds no organic equity. After 12 months of pay-per-lead, stopping payments ends the leads. After 12 months of fixed-fee SEO, you own the rankings, the content, the GBP improvements, and the technical work — it stays on your property. For businesses with consistent call volumes and a 12+ month horizon, fixed-fee builds more durable value.
+Pay-per-lead delivers immediate volume but builds no organic equity. After 12 months of pay-per-lead, stopping payments ends the leads. After 12 months of fixed-fee SEO, you own the rankings, the content, the GBP improvements, and the technical work  - it stays on your property. For businesses with consistent call volumes and a 12+ month horizon, fixed-fee builds more durable value.
 
 **Who owns the rankings in a pay-per-lead arrangement?**
 
-In most pay-per-lead arrangements, the agency controls the GBP profile, the ad accounts, and the lead platform. If you stop paying, access ends. Under a fixed-fee engagement, the technical work lives on your site, the GBP profile stays in your account, and the content is yours permanently. The distinction matters most when you compare what you own after 12 months — not just what you're spending per month.
+In most pay-per-lead arrangements, the agency controls the GBP profile, the ad accounts, and the lead platform. If you stop paying, access ends. Under a fixed-fee engagement, the technical work lives on your site, the GBP profile stays in your account, and the content is yours permanently. The distinction matters most when you compare what you own after 12 months  - not just what you're spending per month.
 
 **What does fixed-fee local SEO typically cost for a service business?**
 
-A full-scope engagement — technical SEO, content, GBP optimization, schema markup — for a local pest control or service operator typically starts around $1,500–2,500/month depending on market competitiveness and content volume. The comparison that matters isn't the monthly fee against a $219/month lead service. It's what each approach produces after 12 months.
+A full-scope engagement  - technical SEO, content, GBP optimization, schema markup  - for a local pest control or service operator typically starts around $1,500–2,500/month depending on market competitiveness and content volume. The comparison that matters isn't the monthly fee against a $219/month lead service. It's what each approach produces after 12 months.
 
 **How long does fixed-fee SEO take to produce results?**
 
