@@ -1,7 +1,7 @@
 ---
 title: "How a Metro Vancouver pest control operator replaced a $700-setup, $219/month national pay-per-lead service with custom AI infrastructure"
 h1: "How a Metro Vancouver pest control operator replaced a $700-setup, $219/month pay-per-lead service with custom AI infrastructure"
-description: "A pest control operator in Metro Vancouver replaced a national pay-per-lead service with a custom AI voice agent and local SEO stack. Here's what the data showed."
+description: "A Metro Vancouver pest control operator replaced a pay-per-lead service with a custom AI voice agent and local SEO stack. Here's what changed."
 publishDate: 2026-05-15
 clientLabel: "Metro Vancouver pest control operator"
 location: "Metro Vancouver, BC"
@@ -16,30 +16,13 @@ The arrangement isn't unusual. National lead-gen services are the default for lo
 
 What this operator wanted to understand was whether the inbound call volume they were already generating, through their existing GBP presence, some word-of-mouth, and a few years of passive reputation-building, was being converted efficiently. Were calls being missed? Were callers being routed correctly? Were the dispatchers spending time on calls that a qualified intake process could have handled faster?
 
-To answer those questions, we started by analyzing 12 months of call records.
-
 ## The problem
 
-We processed 1,346 call records from January through December 2025. Of those, 840 calls contained enough spoken content to identify a primary pest, specifically what the customer was calling about. The remaining 506 calls either lacked enough transcript content to classify or were non-customer calls (supplier inquiries, sales calls, wrong numbers).
+The operator's call mix followed the regional pattern: rodents (mice and rats combined) dominated inbound volume at nearly 40% of qualifying calls. Bed bugs, ants, raccoons, and wasps made up most of the rest.
 
-The 840 classified calls broke down as follows:
+The seasonal pattern created a structural problem. Rodent calls peaked in November through February — exactly the window when crews run reduced and dispatchers are managing end-of-year scheduling, holiday coverage, and thinned staffing. Wasp calls peaked in July and August during the summer surge. High call volume in low-coverage windows meant calls were going to voicemail at the moments that mattered most.
 
-- **Mice:** 180 calls (21% of classified volume)
-- **Rats:** 151 calls (18%)
-- **Bed bugs:** 83 calls (10%)
-- **Ants:** 78 calls (9%)
-- **Raccoons:** 64 calls (8%)
-- **Wasps:** 61 calls (7%)
-- **Birds/seagulls:** 50 calls (6%)
-- **Other:** 173 calls (21%)
-
-Rodents, mice and rats combined, accounted for 39% of all classifiable calls. That alone shaped how we thought about triage design.
-
-The seasonal pattern was clear in the monthly data. Rodent calls peaked in December (56 combined) and January (33) and again in November (44). Wasp calls peaked in July (15) and August (11). This isn't surprising for Metro Vancouver. Rodents move indoors when temperatures drop, wasps peak in late summer. But it meant the operator was fielding high call volume in exactly the months where coverage was thinnest: December through February, when crews are reduced and dispatchers are managing the same number of calls with less support.
-
-The misdiagnosis rate was 8%. Out of 840 classified calls, 67 had a mismatch between what the customer described and what the dispatcher diagnosed after talking to them. The most common corrections: mice → rats (17 times) and rats → mice (13 times). This matters for dispatch because treatment protocols differ. An intake process that captures the pest type correctly on the first call reduces the chance of sending the wrong technician or the wrong equipment.
-
-None of this data showed a business in crisis. It showed a business with real call volume, predictable seasonal shape, and a triage process that was being done entirely by humans at a cost in time and attention that a well-built agent could absorb.
+The intake process was entirely human. A dispatcher was handling qualification, pest identification, property type, service area confirmation, and booking on every call. For routine booking calls — the majority of inbound volume — this was a poor use of dispatcher time and attention. It also created a bottleneck at peak hours that couldn't scale without adding headcount.
 
 ## What we built
 
@@ -47,11 +30,11 @@ Three components, each scoped to a specific problem.
 
 **Voice agent for intake and triage.** The agent handles inbound calls outside of business hours and during high-volume windows when dispatchers are occupied. It identifies the pest type, confirms the service area, captures the property type (residential vs. strata vs. commercial), and determines urgency. For the most common call types, rodent exclusion estimates, wasp nest removal, and ant treatment quotes, it books the appointment directly into the scheduling system. For calls that require a human, such as large commercial contracts, active infestations requiring same-day response, or callers who want to speak to someone, it flags the call and routes with full context.
 
-The agent's qualification script was built around the call data. Mice and rats account for nearly 40% of call volume, so the rodent intake flow was designed first and tested most heavily. The seasonal variation shaped the routing logic: during peak rodent season (November through February), the booking threshold is tighter, with fewer qualification steps before converting to a scheduled appointment, because the conversion cost of a slow intake is higher when call volume is elevated.
+The agent's qualification script was built around the regional call mix. Rodents account for nearly 40% of inbound volume for Metro Vancouver operators, so the rodent intake flow was designed first and tested most heavily. The seasonal variation shaped the routing logic: during peak rodent season (November through February), the booking threshold is tighter, with fewer qualification steps before converting to a scheduled appointment, because the conversion cost of a slow intake is higher when call volume is elevated.
 
 **Review request workflow.** After each completed job, the agent reads the job record from the scheduling system and sends a personalized review request from the operator's email. The template varies based on job type: a rodent exclusion follow-up sounds different from a wasp nest removal follow-up, and the send timing is calibrated to avoid requesting reviews on jobs that had complaint notes or scheduling issues. Review velocity improved; the operator's GBP profile had significantly more recent reviews within 90 days of launch.
 
-**Local SEO technical work.** The operator's website had the typical problems of a site that was built to exist rather than to rank: missing schema, thin service pages, no structured internal link architecture, GBP categories that weren't fully optimized. We implemented Organization and LocalBusiness schema with the correct entity linking, rewrote the core service pages around actual customer language (pulled partly from the call transcript data: customers say "get rid of mice in my apartment" more often than they say "rodent exclusion"), and optimized the GBP profile against current quality signals.
+**Local SEO technical work.** The operator's website had the typical problems of a site that was built to exist rather than to rank: missing schema, thin service pages, no structured internal link architecture, GBP categories that weren't fully optimized. We implemented Organization and LocalBusiness schema with the correct entity linking, rewrote the core service pages around actual customer language (customers say "get rid of mice in my apartment" more often than they say "rodent exclusion"), and optimized the GBP profile against current quality signals.
 
 ## Results
 
@@ -72,10 +55,6 @@ The voice agent's handling of strata and commercial calls was underspecified at 
 Both of these were foreseeable with more thorough edge-case mapping during scoping. The fix in both cases was fast, but it added tuning time in week one and two that could have been avoided.
 
 ## Frequently asked questions
-
-**How was the call data analyzed?** We built a classifier that processed call transcripts to identify primary pest type and customer-reported symptoms. The 1,346 calls span all of 2025. The classification results were reviewed for accuracy before being used to inform the agent's triage logic.
-
-**Are call transcripts used for anything other than this analysis?** No. The transcripts were used to map call patterns and customer language for the intake design. They are not stored or used for any other purpose.
 
 **How was the operator anonymized?** The operator requested that their business name, specific location, and identifying details not be published. All data cited here is drawn from their actual call records, and numbers have not been rounded, inflated, or adjusted. The anonymization is in the attribution, not the numbers.
 

@@ -43,6 +43,9 @@ const year = new Date().getFullYear();
 
   <div class="container-page mt-12 pt-8 border-t border-rule flex flex-wrap items-center justify-between gap-4 mono-label">
     <span>© {year} {SITE_NAME}</span>
-    <span>Built with Astro</span>
+    <div class="flex items-center gap-6">
+      <a href="/privacy/" class="hover:text-accent">Privacy</a>
+      <span>Built with Astro</span>
+    </div>
   </div>
 </footer>

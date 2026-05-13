@@ -17,7 +17,6 @@ faq:
   - q: "Will customers know it's AI?"
     a: "We don't deceive callers. The agent introduces itself naturally. In our experience, customers care about getting their problem solved, not who solves it."
 relatedNotes:
-  - "how-pest-control-operators-lose-revenue-to-missed-calls"
   - "when-an-ai-voice-agent-actually-pays-for-itself"
   - "what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to"
 ---
@@ -72,6 +71,6 @@ A custom-built voice agent scoped to your business, including:
 - 30-day tuning window post-launch (adjustments to scripts, routing, and edge cases)
 - Full runbook documenting how the agent works and how to update it
 
-For related context on call economics and when a voice agent pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/) and [How Pest Control Operators Lose Revenue to Missed Calls](/notes/how-pest-control-operators-lose-revenue-to-missed-calls/). For an honest look at what the agent can't do, see [What an AI Voice Agent Cannot Do (And Shouldn't Pretend To)](/notes/what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to/).
+For related context on call economics and when a voice agent pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/). For an honest look at what the agent can't do, see [What an AI Voice Agent Cannot Do (And Shouldn't Pretend To)](/notes/what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to/).
 
 Want to see what this looks like for your business? [Book a discovery call](/book/) and we'll map the call flows together.
