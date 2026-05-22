@@ -1,11 +1,11 @@
 ---
 title: "How a Metro Vancouver pest control operator replaced a $700-setup, $219/month national pay-per-lead service with custom AI infrastructure"
 h1: "How a Metro Vancouver pest control operator replaced a $700-setup, $219/month pay-per-lead service with custom AI infrastructure"
-description: "A Metro Vancouver pest control operator replaced a pay-per-lead service with a custom AI voice agent and local SEO stack. Here's what changed."
+description: "A Metro Vancouver pest control operator replaced a pay-per-lead service with an automated booking & lead capture system and local SEO stack. Here's what changed."
 publishDate: 2026-05-15
 clientLabel: "Metro Vancouver pest control operator"
 location: "Metro Vancouver, BC"
-tags: ["AI Voice Agent", "Local SEO", "Agentic Workflow"]
+tags: ["Lead Capture System", "Local SEO", "Agentic Workflow"]
 ---
 
 ## Context
@@ -28,7 +28,7 @@ The intake process was entirely human. A dispatcher was handling qualification, 
 
 Three components, each scoped to a specific problem.
 
-**Voice agent for intake and triage.** The agent handles inbound calls outside of business hours and during high-volume windows when dispatchers are occupied. It identifies the pest type, confirms the service area, captures the property type (residential vs. strata vs. commercial), and determines urgency. For the most common call types, rodent exclusion estimates, wasp nest removal, and ant treatment quotes, it books the appointment directly into the scheduling system. For calls that require a human, such as large commercial contracts, active infestations requiring same-day response, or callers who want to speak to someone, it flags the call and routes with full context.
+**Automated after-hours booking & lead capture system.** The system handles inbound calls outside of business hours and during high-volume windows when dispatchers are occupied. It identifies the pest type, confirms the service area, captures the property type (residential vs. strata vs. commercial), and determines urgency. For the most common call types, rodent exclusion estimates, wasp nest removal, and ant treatment quotes, it books the appointment directly into the scheduling system. For calls that require a human, such as large commercial contracts, active infestations requiring same-day response, or callers who want to speak to someone, it flags the call and routes with full context.
 
 The agent's qualification script was built around the regional call mix. Rodents account for nearly 40% of inbound volume for Metro Vancouver operators, so the rodent intake flow was designed first and tested most heavily. The seasonal variation shaped the routing logic: during peak rodent season (November through February), the booking threshold is tighter, with fewer qualification steps before converting to a scheduled appointment, because the conversion cost of a slow intake is higher when call volume is elevated.
 
@@ -42,15 +42,15 @@ The call data tells the before story. The results are directional rather than de
 
 The review velocity improvement was the most immediate and measurable: the GBP profile received more reviews in the first 90 days post-launch than in the prior six months combined. Review count and recency are direct GBP ranking signals, and the profile's local pack visibility for high-intent rodent queries improved within that window.
 
-The intake process for after-hours and high-volume periods now runs without dispatcher involvement for qualifying calls. The jobs that were previously going to voicemail during peak windows, December and January specifically, have a resolution path that doesn't require a callback the next morning. We don't have a clean counterfactual for how many of those were previously lost, but the operator's own assessment was that voicemail calls converted at a fraction of the rate of answered calls, and the agent eliminated voicemail for those windows.
+The intake process for after-hours and high-volume periods now runs without dispatcher involvement for qualifying calls. The jobs that were previously going to voicemail during peak windows, December and January specifically, have a resolution path that doesn't require a callback the next morning. We don't have a clean counterfactual for how many of those were previously lost, but the operator's own assessment was that voicemail calls converted at a fraction of the rate of answered calls, and the system eliminated voicemail for those windows.
 
-The misdiagnosis correction rate improved. The agent's structured intake collects pest type, property type, and specific symptoms before any dispatcher involvement, which means the dispatcher who reviews the booking record has more accurate context than a typical phone intake would have captured.
+The misdiagnosis correction rate improved. The system's structured intake collects pest type, property type, and specific symptoms before any dispatcher involvement, which means the dispatcher who reviews the booking record has more accurate context than a typical phone intake would have captured.
 
 ## What we'd do differently
 
 The review request workflow was built to send automatically with no operator review step. For most job types, that worked fine. For a handful of edge cases, including jobs where there was a billing dispute or where the technician flagged a problem, an automatic review request went out at the wrong moment. We added a manual hold flag to the workflow in week three, but it should have been in the initial build.
 
-The voice agent's handling of strata and commercial calls was underspecified at launch. Strata jobs often involve a property manager rather than the resident, which changes the intake flow significantly. We had to add a property-type routing branch mid-way through the first month. The qualification conversation now identifies strata properties earlier and routes those calls to a human dispatcher rather than trying to handle the booking in the agent.
+The system's handling of strata and commercial calls was underspecified at launch. Strata jobs often involve a property manager rather than the resident, which changes the intake flow significantly. We had to add a property-type routing branch mid-way through the first month. The qualification conversation now identifies strata properties earlier and routes those calls to a human dispatcher rather than trying to handle the booking automatically.
 
 Both of these were foreseeable with more thorough edge-case mapping during scoping. The fix in both cases was fast, but it added tuning time in week one and two that could have been avoided.
 

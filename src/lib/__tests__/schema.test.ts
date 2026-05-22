@@ -18,7 +18,7 @@ describe("buildOrganization", () => {
     expect(node["@id"]).toBe("https://clearslopedigital.com/#organization");
     expect(node.name).toBe("Clear Slope Digital");
     expect(node.url).toBe("https://clearslopedigital.com");
-    expect(node.slogan).toContain("AI voice agents");
+    expect(node.slogan).toContain("Automated booking & lead capture systems");
     expect(node.address.addressLocality).toBe("Vancouver");
     expect(node.areaServed).toEqual(["CA", "US"]);
     expect(node.sameAs).toContain(
@@ -40,7 +40,7 @@ describe("buildPerson", () => {
     expect(node.worksFor["@id"]).toBe(
       "https://clearslopedigital.com/#organization",
     );
-    expect(node.knowsAbout).toContain("AI voice agents");
+    expect(node.knowsAbout).toContain("Automated booking & lead capture systems");
     expect(node.image).toContain("mo-habib");
   });
 });

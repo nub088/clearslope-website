@@ -1,21 +1,21 @@
 ---
-title: "AI Voice Agents for Service Businesses"
-h1: "AI Voice Agents for Service Businesses"
-description: "AI voice agents that capture missed calls during peak hours and after hours, qualify leads, and book the job. Built custom for your service business."
+title: "24/7 After-Hours Booking & Lead Capture System"
+h1: "24/7 After-Hours Booking & Lead Capture System"
+description: "An automated 24/7 booking system for service businesses that captures missed calls, qualifies leads, and schedules jobs directly into your CRM. Zero hassle."
 slug: "ai-voice-agent"
-serviceType: "AI Voice Agent"
+serviceType: "Lead Capture & Booking System"
 order: 1
 faq:
   - q: "How is this different from a generic answering service?"
-    a: "An answering service forwards messages. A voice agent qualifies the lead, answers FAQs in your voice, and books the job into your calendar, all without a human in the loop."
+    a: "An answering service forwards messages. A lead capture system qualifies the lead, answers FAQs in a natural voice, and books the job into your calendar, all without a human in the loop."
   - q: "What does it cost?"
     a: "Fixed monthly fee scoped to your call volume and integration needs. No per-lead fees. Pricing is discussed on the discovery call once we understand the scope."
-  - q: "How long does it take to build?"
-    a: "Typically 3-5 weeks from kickoff. Most of that is integration and voice tuning, not training."
-  - q: "What happens when the agent gets stuck?"
+  - q: "How long does it take to deploy?"
+    a: "Typically 3-5 weeks from kickoff. Most of that is system integration and voice calibration to match your workflow, not training."
+  - q: "What happens when the system gets stuck?"
     a: "Configurable. We can route to voicemail, your cell, or a human dispatcher. Most operators choose a graceful handoff with full context."
-  - q: "Will customers know it's AI?"
-    a: "We don't deceive callers. The agent introduces itself naturally. In our experience, customers care about getting their problem solved, not who solves it."
+  - q: "Will customers know they are talking to an automated system?"
+    a: "We don't deceive callers. The system introduces itself naturally. In our experience, customers care about getting their problem solved, not who solves it."
 relatedNotes:
   - "when-an-ai-voice-agent-actually-pays-for-itself"
   - "what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to"
@@ -31,25 +31,30 @@ This is a structural problem, not a staffing problem. You can't hire your way ou
 
 Most operators try an answering service first. It costs $50–$200/month and solves the coverage problem, but not the conversion problem. The caller gets a message-taker who captures a name and a number. No qualification, no FAQs answered, no job booked. You call back the next morning and half of them have already booked with someone else.
 
-A voice agent closes that gap. It answers every call, in your voice, follows your qualification script, handles the FAQs your team gets asked daily, and books confirmed appointments into your calendar. The calls that need a human get a graceful handoff with full context. The calls that don't, which is most of them, get resolved without anyone on your payroll picking up the phone.
+An automated lead capture and booking system closes that gap. It acts as a backup for when your team is swamped or closed, ensuring that every single person calling for a quote actually gets to talk to someone—or gets their information captured—instead of going to a dead-end voicemail. We’re seeing companies recover 5–10 leads a week that they were previously losing to their competitors.
 
-## How it works
+## The System Mindset: How it works
 
-The build is specific to your business, not templated. Here's the general arc:
+We don't just sell you a bot; we install an automated lead-capture pipeline that plugs into your existing workflow so you never have to think about missed calls again. Think of it as a digital employee that handles calls exactly like your best office manager, 24/7.
 
-**Intake and triage.** The agent answers the call, confirms the caller's location is in your service area, and identifies the nature of the job. For a pest control operator, that means confirming the pest type, the property type (residential vs. commercial), and the urgency. For an HVAC company, it's identifying whether this is a service call, installation quote, or emergency. The qualification questions are built to match how your team actually dispatches jobs.
+Here is the system breakdown:
 
-**FAQ handling.** Every service business has a short list of questions that eat dispatcher time: Do you service my area? How much does it cost? How long does treatment take? Do I need to leave the house? We map these out during onboarding and build them into the agent's knowledge base. The agent gives accurate, specific answers, not "I'll have someone call you back."
+### 1. Inbound (Input)
+A potential customer calls your business. If it's between 11 AM and 2 PM (your peak rush hours) and your team is busy in the field or at lunch, or if it's 7:30 PM after-hours, the call is automatically routed to the system.
 
-**Booking.** When the caller is qualified and ready to schedule, the agent books the appointment directly into your scheduling system. No callbacks required. The job lands on the calendar with notes from the call.
+### 2. Qualification & Triage (Process)
+Powered by our proprietary voice-response technology, the system answers naturally, introduces itself, and triages the call:
+*   **Location Check:** Verifies the caller is in your service area.
+*   **Job Triage:** Identifies the type of issue (e.g. residential vs. commercial pest control, specific pest type, urgency level).
+*   **FAQ Resolution:** Handles standard questions that eat dispatcher time (e.g., pricing, safety, prep instructions, duration) with accurate, business-specific answers.
+*   **Handoff Logic:** If the caller has a complex emergency or demands a human, the system routes the call to your cell or dispatcher with full context.
 
-**Handoff.** When the caller has a question the agent can't answer, such as an unusual job type, a complaint, or someone asking to speak to a human, the agent transfers with full call context. The person who picks up already knows what the call is about.
-
-**Post-call.** The agent logs every call with a structured summary: caller info, job type, outcome, and any notes the agent flagged. Your dispatcher starts the day with a complete overnight report, not a stack of voicemails to decode.
+### 3. CRM Integration (Output)
+Once the caller is qualified, the system schedules the appointment directly into your CRM (Jobber, Housecall Pro, FieldEdge, etc.) and syncs it with your team's calendar. You receive a notification on your phone and a new booked job in your system, without adding a single person to your payroll.
 
 ## Where it fits
 
-The right signal isn't vertical. It's call volume. If your business is receiving more than 15–20 inbound calls per day, you have enough volume to justify a custom agent and enough revenue at stake to recover the cost quickly.
+The right signal isn't vertical. It's call volume. If your business is receiving more than 15–20 inbound calls per day, you have enough volume to justify a custom system and enough revenue at stake to recover the cost quickly.
 
 Industries where we've seen consistent fit:
 
@@ -62,15 +67,15 @@ The operator-size signal: you're running a dispatcher or front-desk person who i
 
 ## What you get
 
-A custom-built voice agent scoped to your business, including:
+A custom-built, fully integrated lead capture and booking system, including:
 
 - Discovery session to map your call flows, qualification criteria, and FAQ library
-- A fully configured agent integrated with your scheduling system and phone number
+- A fully configured system integrated with your CRM and business phone number
 - Call logging and structured daily summaries
 - Graceful handoff routing configured to your preferences
 - 30-day tuning window post-launch (adjustments to scripts, routing, and edge cases)
-- Full runbook documenting how the agent works and how to update it
+- Full runbook documenting how the system works and how to update it
 
-For related context on call economics and when a voice agent pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/). For an honest look at what the agent can't do, see [What an AI Voice Agent Cannot Do (And Shouldn't Pretend To)](/notes/what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to/).
+For related context on call economics and when a lead capture system pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/). For an honest look at what the system can't do, see [What an AI Voice Agent Cannot Do (And Shouldn't Pretend To)](/notes/what-an-ai-voice-agent-cannot-do-and-shouldnt-pretend-to/).
 
 Want to see what this looks like for your business? [Book a discovery call](/book/) and we'll map the call flows together.

@@ -65,4 +65,4 @@ The initial conversation covers these three questions and takes 20–30 minutes.
 
 Published case studies describe engagements as "a Metro Vancouver pest control operator" or reference specific metrics without naming the business. No one who doesn't already know the client would identify them from the description. The operator gets to review any content that references their data before it's published. This model has worked for every client to date; it rarely disqualifies anyone.
 
-For more context on how I approach work, see [About](/about/). For the services where these questions come up most often, see [AI Voice Agents](/services/ai-voice-agent/), [Agentic Workflows](/services/agentic-workflows/), and [Local SEO](/services/local-seo/).
+For more context on how I approach work, see [About](/about/). For the services where these questions come up most often, see [After-Hours Booking & Lead Capture](/services/ai-voice-agent/), [Agentic Workflows](/services/agentic-workflows/), and [Local SEO](/services/local-seo/).

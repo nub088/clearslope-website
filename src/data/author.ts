@@ -15,7 +15,7 @@ export const AUTHOR = {
   address: ORG_ADDRESS,
   sameAs: ["https://www.linkedin.com/company/clearslopedigital/"] as const,
   knowsAbout: [
-    "AI voice agents",
+    "Automated booking & lead capture systems",
     "Agentic workflows",
     "Local SEO",
     "Service-business operations",
@@ -23,5 +23,5 @@ export const AUTHOR = {
     "Conversion rate optimization",
   ] as const,
   shortBio:
-    "Mo Habib builds AI voice agents, agentic workflows, and local SEO systems for service businesses across Canada and the US. Engineering background, systems thinker, working founder-direct.",
+    "Mo Habib builds automated booking & lead capture systems, agentic workflows, and local SEO systems for service businesses across Canada and the US. Engineering background, systems thinker, working founder-direct.",
 } as const;

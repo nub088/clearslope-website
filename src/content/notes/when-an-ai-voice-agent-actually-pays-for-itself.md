@@ -80,4 +80,4 @@ A receptionist ($1,500–3,500/month) provides better handling for complex and e
 
 Below 20–30 calls per month, when average tickets are under $150, or when your front desk already has a genuinely low voicemail rate. A $100/month answering service is the better tool at low volumes. The math needs room to work  - small call volumes leave too little margin for error.
 
-For a detailed look at how this played out in a real engagement, see [the case study](/work/pest-control-vancouver/). For the service description and what a build includes, see [AI Voice Agents for Service Businesses](/services/ai-voice-agent/).
+For a detailed look at how this played out in a real engagement, see [the case study](/work/pest-control-vancouver/). For the service description and what a build includes, see [Automated After-Hours Booking & Lead Capture System](/services/ai-voice-agent/).

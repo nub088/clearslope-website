@@ -2,7 +2,7 @@
 title: "The Quote That Sits for Three Days"
 description: "Most service businesses lose more revenue to unfollowed quotes than to bad leads. An agentic workflow fixes the gap between sending a number and closing the job."
 publishDate: 2026-05-16
-cluster: agentic-workflows
+cluster: operator-pov
 ---
 
 A plumber I worked with last year sent out 142 quotes in a month. He closed 38 of them. When I asked what happened to the other 104, he shrugged. Some were tire-kickers. Some went with a competitor. Most, though, he just never heard back from.

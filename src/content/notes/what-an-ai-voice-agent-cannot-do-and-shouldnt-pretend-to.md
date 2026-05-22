@@ -72,4 +72,4 @@ Yes, for the majority of inbound pest control calls  - routine bookings, FAQ que
 
 Call data shows an 8% mismatch rate between customer descriptions and what dispatchers actually diagnosed  - callers describing "mice" who had rats, "ants" that were carpenter ants requiring structural treatment. A well-built voice agent can reduce this with structured qualification questions, but for jobs where misdiagnosis significantly affects the treatment, agent-plus-human review is the safer design.
 
-For more on what a voice agent build includes and the cases where it's the right tool, see [AI Voice Agents for Service Businesses](/services/ai-voice-agent/). For the unit-economics breakdown of when one pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/).
+For more on what a voice agent build includes and the cases where it's the right tool, see [Automated After-Hours Booking & Lead Capture System](/services/ai-voice-agent/). For the unit-economics breakdown of when one pays for itself, see [When an AI Voice Agent Actually Pays for Itself](/notes/when-an-ai-voice-agent-actually-pays-for-itself/).

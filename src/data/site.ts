@@ -1,10 +1,10 @@
 export const SITE_URL = "https://clearslopedigital.com";
 export const SITE_NAME = "Clear Slope Digital";
 export const SITE_TAGLINE =
-  "AI voice agents, agentic workflows, and local SEO for service businesses.";
+  "Automated booking & lead capture systems, agentic workflows, and local SEO for service businesses.";
 
 export const SITE_DESCRIPTION =
-  "Clear Slope Digital builds AI voice agents, agentic workflows, and local SEO systems for service businesses across Canada and the US.";
+  "Clear Slope Digital builds automated booking & lead capture systems, agentic workflows, and local SEO systems for service businesses across Canada and the US.";
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 

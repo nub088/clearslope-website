@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { buildPageMeta } from "../lib/seo";
 
 const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL ?? "http://localhost:8080";
-const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI receptionist.", path: "/demo/" });
+const meta = buildPageMeta({ title: "Demo", description: "Live demo of the automated lead capture and booking system.", path: "/demo/" });
 ---
 
 <Base meta={meta}>
@@ -21,7 +21,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
           class="font-sans font-medium text-ink"
           style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
         >
-          AI assistant demo
+          Lead capture system demo
         </h1>
       </div>
 
@@ -80,7 +80,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
             class="font-sans font-medium text-ink"
             style="font-size: var(--text-h3); line-height: var(--text-h3--line-height); letter-spacing: var(--text-h3--letter-spacing);"
           >
-            Talk to Sarah, AI assistant
+            Talk to Sarah, 24/7 Automated Receptionist
           </h1>
         </div>
         <button data-logout class="mono-label underline hover:text-ink transition-colors">
@@ -99,7 +99,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
           style="border-color: var(--color-rule-strong); background: var(--color-bg);"
         >
           <div class="w-2 h-2 rounded-full" style="background: var(--color-accent);"></div>
-          <span class="mono-label">Sarah · ClearSlope Pest Control</span>
+          <span class="mono-label">Sarah · ClearSlope Pest Control (Automated)</span>
         </div>
 
         <!-- Messages -->
@@ -133,7 +133,7 @@ const meta = buildPageMeta({ title: "Demo", description: "Live demo of the AI re
       </div>
 
       <p class="mono-label mt-3" style="color: color-mix(in oklab, var(--color-ink-soft) 70%, transparent);">
-        Text demo. The real agent handles inbound calls by phone.
+        Text demo. The actual system handles live customer calls by phone.
       </p>
     </div>
   </main>
