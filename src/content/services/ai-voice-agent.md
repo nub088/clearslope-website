@@ -1,7 +1,7 @@
 ---
 title: "24/7 After-Hours Booking & Lead Capture System"
 h1: "24/7 After-Hours Booking & Lead Capture System"
-description: "An automated 24/7 booking system for service businesses that captures missed calls, qualifies leads, and schedules jobs directly into your CRM. Zero hassle."
+description: "An automated 24/7 booking system for service businesses that captures missed calls, qualifies leads, and schedules jobs directly into your CRM."
 slug: "ai-voice-agent"
 serviceType: "Lead Capture & Booking System"
 order: 1
@@ -31,26 +31,17 @@ This is a structural problem, not a staffing problem. You can't hire your way ou
 
 Most operators try an answering service first. It costs $50–$200/month and solves the coverage problem, but not the conversion problem. The caller gets a message-taker who captures a name and a number. No qualification, no FAQs answered, no job booked. You call back the next morning and half of them have already booked with someone else.
 
-An automated lead capture and booking system closes that gap. It acts as a backup for when your team is swamped or closed, ensuring that every single person calling for a quote actually gets to talk to someone—or gets their information captured—instead of going to a dead-end voicemail. We’re seeing companies recover 5–10 leads a week that they were previously losing to their competitors.
+An automated lead capture and booking system closes that gap. It picks up the calls your team can't, after hours, during the lunch rush, in the middle of a job, and either books the work or captures the details instead of dropping the caller into voicemail. The leads you were losing to the next company on the list get caught before they hang up.
 
-## The System Mindset: How it works
+## How it works
 
-We don't just sell you a bot; we install an automated lead-capture pipeline that plugs into your existing workflow so you never have to think about missed calls again. Think of it as a digital employee that handles calls exactly like your best office manager, 24/7.
+This isn't an answering machine with extra steps. It plugs into the phone number and CRM you already use, so a call your team can't get to turns into a booked job without anyone touching it.
 
-Here is the system breakdown:
+You set the rules for when calls route to the system: after hours, or during the windows when the team is in the field or at lunch and the phone goes unanswered. From there it does the work a sharp office manager would.
 
-### 1. Inbound (Input)
-A potential customer calls your business. If it's between 11 AM and 2 PM (your peak rush hours) and your team is busy in the field or at lunch, or if it's 7:30 PM after-hours, the call is automatically routed to the system.
+It confirms the caller is in your service area before going any further. It works out the job, residential or commercial, the type of pest, how urgent it is, and answers the routine questions that eat dispatcher time: pricing, prep, safety, how long it takes, all with answers specific to your business. And it knows when to step back. A complex emergency, a commercial contract, or a caller who just wants a person gets routed to your cell or dispatcher with the full context of the call, not a cold transfer.
 
-### 2. Qualification & Triage (Process)
-Powered by our proprietary voice-response technology, the system answers naturally, introduces itself, and triages the call:
-*   **Location Check:** Verifies the caller is in your service area.
-*   **Job Triage:** Identifies the type of issue (e.g. residential vs. commercial pest control, specific pest type, urgency level).
-*   **FAQ Resolution:** Handles standard questions that eat dispatcher time (e.g., pricing, safety, prep instructions, duration) with accurate, business-specific answers.
-*   **Handoff Logic:** If the caller has a complex emergency or demands a human, the system routes the call to your cell or dispatcher with full context.
-
-### 3. CRM Integration (Output)
-Once the caller is qualified, the system schedules the appointment directly into your CRM (Jobber, Housecall Pro, FieldEdge, etc.) and syncs it with your team's calendar. You receive a notification on your phone and a new booked job in your system, without adding a single person to your payroll.
+When the caller is qualified and ready to book, the system schedules the appointment straight into your CRM (Jobber, Housecall Pro, FieldEdge, and the like) and syncs your calendar. You get a notification on your phone and a new job on the schedule, with no one added to payroll.
 
 ## Where it fits
 
